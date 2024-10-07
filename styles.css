@@ -1,0 +1,564 @@
+/* Estilos generales */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #333; /* Fondo gris oscuro */
+    color: #e0e0e0;
+    text-align: center;
+}
+
+h1, h2, h3 {
+    color: #b0b0b0; /* Color gris claro para los encabezados */
+}
+
+p {
+    max-width: 600px;
+    margin: 10px auto;
+    line-height: 1.6;
+    color: #d0d0d0; /* Color de texto gris claro */
+}
+
+/* Sección de Bienvenida */
+#bienvenida {
+    padding: 40px 20px;
+    background-color: #333; /* Fondo gris oscuro */
+}
+
+.botones-descarga .btn {
+    display: inline-block;
+    margin: 10px;
+    padding: 10px 20px;
+    color: #333; /* Color del texto */
+    background-color: #888; /* Fondo gris intermedio */
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background-color 0.3s;
+}
+
+.botones-descarga .btn:hover {
+    background-color: #666; /* Cambia a un gris más oscuro al hacer hover */
+}
+
+/* Sección de Imágenes de la App */
+#imagenes-app {
+    padding: 40px 20px;
+    background-color: #333; /* Fondo gris oscuro */
+}
+
+.galeria {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+}
+
+.galeria img {
+    max-width: 200px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s;
+}
+
+.galeria img:hover {
+    transform: scale(1.05);
+}
+
+/* Footer */
+footer {
+    padding: 30px 20px;
+    background-color: #333; /* Fondo gris oscuro */
+    color: #bbb;
+}
+
+footer h2, footer h3 {
+    color: #e0e0e0;
+}
+
+footer .redes-sociales {
+    margin: 20px 0;
+}
+
+footer .redes-sociales img {
+    width: 40px;
+    margin: 0 10px;
+    filter: grayscale(100%); /* Cambia los iconos de redes sociales a escala de grises */
+    transition: opacity 0.3s;
+}
+
+footer .redes-sociales img:hover {
+    opacity: 0.8;
+}
+
+footer .formas-apoyo ul {
+    list-style: none;
+    padding: 0;
+}
+
+footer .formas-apoyo ul li {
+    display: inline;
+    margin: 0 10px;
+}
+
+footer .formas-apoyo ul li a {
+    color: #ccc; /* Color gris claro */
+    text-decoration: none;
+}
+
+footer .formas-apoyo ul li a:hover {
+    text-decoration: underline;
+}
+/* Estilos generales */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #333; /* Fondo gris oscuro */
+    color: #e0e0e0;
+    text-align: center;
+}
+
+/* Estilo de títulos con gradiente */
+h1, h2, h3 {
+    color: transparent; /* El color del texto será el degradado */
+    background: linear-gradient(45deg, #a64bf4, #f464c4, #4bf4e1); /* Degradado de morado, rosa, azul */
+    background-clip: text;
+    -webkit-background-clip: text;
+    font-weight: bold;
+}
+
+/* Estilos para el texto general */
+p {
+    max-width: 600px;
+    margin: 10px auto;
+    line-height: 1.6;
+    color: #d0d0d0; /* Color de texto gris claro */
+}
+
+/* Sección de Bienvenida */
+#bienvenida {
+    padding: 40px 20px;
+    background-color: #333; /* Fondo gris oscuro */
+}
+
+.botones-descarga .btn {
+    display: inline-block;
+    margin: 10px;
+    padding: 10px 20px;
+    color: #333; /* Color del texto */
+    background-color: #888; /* Fondo gris intermedio */
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background-color 0.3s;
+}
+
+.botones-descarga .btn:hover {
+    background-color: #666; /* Cambia a un gris más oscuro al hacer hover */
+}
+
+/* Sección de Imágenes de la App */
+#imagenes-app {
+    padding: 40px 20px;
+    background-color: #333; /* Fondo gris oscuro */
+}
+
+.galeria {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+}
+
+.galeria img {
+    max-width: 200px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s;
+}
+
+.galeria img:hover {
+    transform: scale(1.05);
+}
+
+/* Footer */
+footer {
+    padding: 30px 20px;
+    background-color: #333; /* Fondo gris oscuro */
+    color: #bbb;
+}
+
+footer h2, footer h3 {
+    color: transparent; /* Degradado de color en títulos del footer */
+    background: linear-gradient(45deg, #a64bf4, #f464c4, #4bf4e1);
+    background-clip: text;
+    -webkit-background-clip: text;
+}
+
+footer .redes-sociales {
+    margin: 20px 0;
+}
+
+footer .redes-sociales img {
+    width: 40px;
+    margin: 0 10px;
+    filter: grayscale(100%); /* Cambia los iconos de redes sociales a escala de grises */
+    transition: opacity 0.3s;
+}
+
+footer .redes-sociales img:hover {
+    opacity: 0.8;
+}
+
+footer .formas-apoyo ul {
+    list-style: none;
+    padding: 0;
+}
+
+footer .formas-apoyo ul li {
+    display: inline;
+    margin: 0 10px;
+}
+
+footer .formas-apoyo ul li a {
+    color: #ccc; /* Color gris claro */
+    text-decoration: none;
+}
+
+footer .formas-apoyo ul li a:hover {
+    text-decoration: underline;
+}
+/* Estilos globales */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background-color: #2c2c2c; /* Fondo gris oscuro */
+    color: #ffffff;
+    line-height: 1.6;
+}
+
+h1, h2, h3 {
+    color: linear-gradient(45deg, #ff7ce2, #70e1f5, #6a0dad); /* Gradiente de rosa, azul y morado */
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+p {
+    color: #bbbbbb;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+/* Estilos del Header de Bienvenida */
+#bienvenida {
+    padding: 60px 20px;
+    text-align: center;
+    background-color: #333333;
+}
+
+.botones-descarga .btn {
+    display: inline-block;
+    background: linear-gradient(45deg, #ff7ce2, #70e1f5, #6a0dad);
+    color: #ffffff;
+    padding: 12px 25px;
+    margin: 10px;
+    border-radius: 25px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background 0.3s ease;
+}
+
+.botones-descarga .btn:hover {
+    background: linear-gradient(45deg, #6a0dad, #ff7ce2, #70e1f5);
+}
+
+/* Sección de Capturas de la App */
+#imagenes-app {
+    padding: 40px 20px;
+    background-color: #444444;
+    text-align: center;
+}
+
+.galeria {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.galeria img {
+    width: 200px;
+    height: auto;
+    border-radius: 15px;
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.5);
+    transition: transform 0.3s ease;
+}
+
+.galeria img:hover {
+    transform: scale(1.05);
+}
+
+/* Sección de Información y Formas de Apoyo */
+#informacion {
+    padding: 40px 20px;
+    background-color: #333333;
+    text-align: center;
+}
+
+.formas-apoyo ul {
+    list-style-type: none;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+
+.formas-apoyo ul li {
+    display: inline;
+}
+
+.formas-apoyo ul li a {
+    color: #70e1f5;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+.formas-apoyo ul li a:hover {
+    color: #ff7ce2;
+}
+
+/* Sección de Redes Sociales */
+.redes-sociales {
+    margin-top: 30px;
+}
+
+.redes-sociales h3 {
+    color: #ffffff;
+    margin-bottom: 15px;
+}
+
+.redes-sociales ul {
+    list-style-type: none;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+
+.redes-sociales ul li a {
+    color: #6a0dad;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+.redes-sociales ul li a:hover {
+    color: #ff7ce2;
+}
+
+/* Responsividad */
+@media (max-width: 768px) {
+    .galeria img {
+        width: 150px;
+    }
+
+    .botones-descarga .btn {
+        padding: 10px 20px;
+    }
+
+    .formas-apoyo ul, .redes-sociales ul {
+        flex-direction: column;
+        gap: 10px;
+    }
+}
+/* Estilos globales */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background-color: #2c2c2c; /* Fondo gris oscuro */
+    color: #ffffff;
+    line-height: 1.6;
+}
+
+h1, h2, h3 {
+    color: linear-gradient(45deg, #ff7ce2, #70e1f5, #6a0dad); /* Gradiente de rosa, azul y morado */
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+p {
+    color: #bbbbbb;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+/* Estilos del Header de Bienvenida */
+#bienvenida {
+    padding: 60px 20px;
+    text-align: center;
+    background-color: #333333;
+}
+
+.botones-descarga .btn {
+    display: inline-block;
+    background: linear-gradient(45deg, #a64bf4, #f464c4, #4bf4e1); /* Gradiente solicitado */
+    color: #ffffff;
+    padding: 12px 25px;
+    margin: 10px;
+    border-radius: 25px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background 0.3s ease;
+}
+
+.botones-descarga .btn:hover {
+    background: linear-gradient(45deg, #4bf4e1, #a64bf4, #f464c4); /* Gradiente invertido para hover */
+}
+
+/* Sección de Capturas de la App */
+#imagenes-app {
+    padding: 40px 20px;
+    background-color: #444444;
+    text-align: center;
+}
+
+.galeria {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.galeria img {
+    width: 200px;
+    height: auto;
+    border-radius: 15px;
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.5);
+    transition: transform 0.3s ease;
+}
+
+.galeria img:hover {
+    transform: scale(1.05);
+}
+
+/* Sección de Información y Formas de Apoyo */
+#informacion {
+    padding: 40px 20px;
+    background-color: #333333;
+    text-align: center;
+}
+
+.formas-apoyo ul {
+    list-style-type: none;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+
+.formas-apoyo ul li {
+    display: inline;
+}
+
+.formas-apoyo ul li a {
+    color: #70e1f5;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+.formas-apoyo ul li a:hover {
+    color: #ff7ce2;
+}
+
+/* Sección de Redes Sociales */
+.redes-sociales {
+    margin-top: 30px;
+}
+
+.redes-sociales h3 {
+    color: #ffffff;
+    margin-bottom: 15px;
+}
+
+.redes-sociales ul {
+    list-style-type: none;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+
+.redes-sociales ul li a {
+    color: #6a0dad;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+.redes-sociales ul li a:hover {
+    color: #ff7ce2;
+}
+
+/* Responsividad */
+@media (max-width: 768px) {
+    .galeria img {
+        width: 150px;
+    }
+
+    .botones-descarga .btn {
+        padding: 10px 20px;
+    }
+
+    .formas-apoyo ul, .redes-sociales ul {
+        flex-direction: column;
+        gap: 10px;
+    }
+}
+.estado-operacion {
+    display: flex;
+    align-items: center;
+    color: #4bf4e1; /* Color del texto */
+    font-size: 1em;
+    position: relative;
+    top: -157px; /* Ajusta para colocarlo más cerca de la línea */
+    left: 0; /* Alineado a la izquierda del contenedor */
+    margin-left: 950px; /* Ajusta el margen según el espacio deseado */
+}
+
+.estado-operacion i {
+    color: #4bf4e1; /* Color del ícono */
+    margin-right: 6px;
+}
+.linea {
+    border: none;
+    border-top: 1px solid #4bf4e1; /* Color de la línea */
+    margin: 10px 0;
+}
+.developers {
+    color: #4bf4e1; /* Color del texto */
+    font-size: 0.9em;
+    text-align: left;
+    margin-top: -179px;
+    padding-left: 90px; /* Alineación a la izquierda */
+}
+
+
