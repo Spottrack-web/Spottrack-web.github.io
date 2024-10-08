@@ -539,7 +539,7 @@ p {
     color: #4bf4e1; /* Color del texto */
     font-size: 1em;
     position: relative;
-    top: -157px; /* Ajusta para colocarlo más cerca de la línea */
+    top: -131px; /* Ajusta para colocarlo más cerca de la línea */
     left: 0; /* Alineado a la izquierda del contenedor */
     margin-left: 950px; /* Ajusta el margen según el espacio deseado */
 }
@@ -557,7 +557,7 @@ p {
     color: #4bf4e1; /* Color del texto */
     font-size: 0.9em;
     text-align: left;
-    margin-top: -179px;
+    margin-top: -155px;
     padding-left: 90px; /* Alineación a la izquierda */
 }
 
