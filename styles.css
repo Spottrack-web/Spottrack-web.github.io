@@ -561,3 +561,85 @@ p {
     padding-left: 90px; /* Alineación a la izquierda */
 }
 
+/* Barra de navegación más pequeña */
+.navbar {
+    display: flex;
+    justify-content: space-around;
+    background-color: #222; /* Fondo oscuro */
+    padding: 4px 0; /* Espacio vertical reducido para hacer la barra más pequeña */
+    height: 40px; /* Altura de la barra más compacta */
+}
+
+/* Botones de navegación más pequeños */
+.navbar a {
+    font-size: 0.8em; /* Tamaño de texto reducido */
+    padding: 4px 8px; /* Espacio más compacto dentro de los botones */
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px; /* Bordes ligeramente redondeados */
+    transition: background-color 0.3s ease;
+}
+
+.navbar a:hover {
+    background-color: #444; /* Color de fondo al pasar el cursor */
+}
+/* Barra de navegación más pequeña */
+.navbar {
+    display: flex;
+    justify-content: space-around;
+    align-items: center; /* Alinea los elementos verticalmente */
+    background-color: #222; /* Fondo oscuro */
+    padding: 4px 0; /* Espacio vertical reducido para hacer la barra más pequeña */
+    height: 40px; /* Altura de la barra */
+}
+
+/* Botones de navegación más pequeños y con texto centrado */
+.navbar a {
+    font-size: 0.8em; /* Tamaño de texto reducido */
+    padding: 6px 10px; /* Ajusta el espacio dentro del botón */
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px; /* Bordes redondeados */
+    display: flex;
+    align-items: center; /* Alinea el texto verticalmente */
+    justify-content: center; /* Alinea el texto horizontalmente */
+    transition: background-color 0.3s ease;
+    height: 100%; /* Hace que los botones ocupen toda la altura de la barra */
+}
+
+.navbar a:hover {
+    background-color: #444; /* Color de fondo al pasar el cursor */
+}
+/* Estilo para los botones en la barra de navegación */
+.navbar a {
+    color: #fff;
+    font-size: 1em;
+    padding: 10px 20px;
+    border-radius: 10px;
+    border: 2px solid transparent; /* Bordes invisibles inicialmente */
+    background-color: transparent; /* Fondo transparente */
+    text-decoration: none;
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+/* Borde degradado alrededor de los botones */
+.navbar a::before {
+    content: "";
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    border-radius: 10px;
+    background: linear-gradient(45deg, #a64bf4, #f464c4, #4bf4e1);
+    z-index: -1;
+    opacity: 1;
+}
+
+/* Efecto al pasar el cursor sobre el botón */
+.navbar a:hover {
+    background: linear-gradient(45deg, #a64bf4, #f464c4, #4bf4e1); /* Color de fondo degradado */
+    color: #fff; /* Color del texto */
+    border: none; /* Sin borde adicional */
+}
