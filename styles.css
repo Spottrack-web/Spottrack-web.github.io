@@ -1,3 +1,183 @@
+/* Contenedor principal con borde de gradiente */
+.status-container {
+    background: #222;
+    padding: 20px;
+    width: 350px;
+    border-radius: 12px;
+    text-align: center;
+    font-family: Arial, sans-serif;
+    color: #fff;
+    margin: 0 auto;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    position: relative;
+}
+
+/* Borde de gradiente alrededor del contenedor */
+.status-container::before {
+    content: "";
+    position: absolute;
+    top: -4px;
+    left: -4px;
+    right: -4px;
+    bottom: -4px;
+    background: linear-gradient(45deg, #8a2be2, #ff69b4, #00bfff);
+    border-radius: 16px;
+    z-index: -1;
+}
+
+/* Título */
+.status-container h2 {
+    font-size: 24px;
+    color: #FFC107;
+    margin-bottom: 15px;
+}
+
+/* Lista de estado */
+.status-list {
+    list-style: none;
+    padding: 0;
+    margin: 0 auto 15px;
+    text-align: left; /* Centra el texto dentro del contenedor */
+    display: inline-block;
+}
+
+/* Cada elemento de estado */
+.status-list li {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 16px;
+    margin-bottom: 8px;
+}
+
+/* Ícono de verificación */
+.check-icon {
+    width: 16px;
+    height: 16px;
+    background-color: #28a745; /* Verde para el icono */
+    mask: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path fill="white" d="M6.173 11.01l-3.29-3.29a.533.533 0 0 1 0-.755l.754-.754c.208-.209.547-.209.755 0L6.55 8.778l5.27-5.27a.533.533 0 0 1 .754 0l.755.755c.208.208.208.546 0 .754l-6.603 6.603a.533.533 0 0 1-.754 0z"/></svg>');
+    background-size: contain;
+    flex-shrink: 0;
+}
+
+/* Contenedor para el iframe de Better Uptime */
+.status-uptime {
+    margin-top: 15px;
+    display: flex;
+    justify-content: center;
+}
+
+/* Contenedor principal */
+.status-container {
+    background: #222;
+    padding: 20px;
+    width: 350px;
+    border-radius: 12px;
+    text-align: center;
+    font-family: Arial, sans-serif;
+    color: #fff;
+    margin: 0 auto;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+/* Título */
+.status-container h2 {
+    font-size: 24px;
+    color: #FFC107;
+    margin-bottom: 15px;
+}
+
+/* Lista de estado */
+.status-list {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 15px;
+}
+
+/* Cada elemento de estado */
+.status-list li {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 16px;
+    margin-bottom: 8px;
+}
+
+/* Ícono de verificación */
+.check-icon {
+    width: 16px;
+    height: 16px;
+    background-color: #28a745; /* Verde para el icono */
+    mask: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path fill="white" d="M6.173 11.01l-3.29-3.29a.533.533 0 0 1 0-.755l.754-.754c.208-.209.547-.209.755 0L6.55 8.778l5.27-5.27a.533.533 0 0 1 .754 0l.755.755c.208.208.208.546 0 .754l-6.603 6.603a.533.533 0 0 1-.754 0z"/></svg>');
+    background-size: contain;
+}
+
+/* Contenedor para el iframe de Better Uptime */
+.status-uptime {
+    margin-top: 15px;
+}
+
+/* Contenedor principal del banner */
+.update-banner {
+    background: #222;
+    padding: 20px;
+    width: 500px; /* Ajusta el ancho aquí para hacerlo más amplio */
+    border-radius: 10px;
+    text-align: center;
+    font-family: Arial, sans-serif;
+    color: #fff;
+    margin: 0 auto; /* Centra el contenedor horizontalmente */
+    position: relative;
+    top: 0px; /* Ajusta esta propiedad para mover el contenedor hacia abajo */
+    left: 0px; /* Ajusta esta propiedad para mover el contenedor hacia la derecha */
+}
+
+/* Borde con gradiente */
+.update-banner::before {
+    content: "";
+    position: absolute;
+    top: -3px;
+    left: -3px;
+    right: -3px;
+    bottom: -3px;
+    background: linear-gradient(45deg, #8a2be2, #ff69b4, #00bfff);
+    border-radius: 12px;
+    z-index: -1;
+}
+
+/* Título */
+.update-banner h2 {
+    font-size: 20px;
+    color: #FFC107;
+    margin-bottom: 12px;
+}
+
+/* Lista de novedades */
+.update-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+/* Estilos para cada novedad */
+.update-list li {
+    display: flex;
+    align-items: center;
+    gap: 10px; /* Espacio entre el ícono y el texto */
+    margin-bottom: 8px;
+    font-weight: normal;
+}
+
+/* Ícono de verificación */
+.check-icon {
+    width: 16px;
+    height: 16px;
+    background-color: #28a745; /* Verde para el icono */
+    mask: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path fill="white" d="M6.173 11.01l-3.29-3.29a.533.533 0 0 1 0-.755l.754-.754c.208-.209.547-.209.755 0L6.55 8.778l5.27-5.27a.533.533 0 0 1 .754 0l.755.755c.208.208.208.546 0 .754l-6.603 6.603a.533.533 0 0 1-.754 0z"/></svg>');
+    background-size: contain;
+    flex-shrink: 0; /* Evita que el ícono cambie de tamaño o posición */
+}
+
 /* Estilos generales */
 body {
     font-family: Arial, sans-serif;
@@ -780,4 +960,282 @@ body {
 
 .close-btn:hover {
   color: #ff5a5a;
+}
+/* Contenedor principal de la tarjeta */
+.stats-card {
+    background-color: #1e1e2f;
+    width: 350px; /* Ajusta el ancho según tu preferencia */
+    padding: 20px;
+    border-radius: 15px;
+    color: #fff;
+    font-family: Arial, sans-serif;
+    text-align: center;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    margin: 0 auto; /* Centrado en la página */
+}
+
+/* Título de la tarjeta */
+.stats-title {
+    font-size: 24px;
+    color: #FFC107;
+    margin-bottom: 20px;
+    font-weight: bold;
+}
+
+/* Contenedor de cada estadística */
+.stats-content {
+    display: flex;
+    flex-direction: column;
+    gap: 15px; /* Espacio entre cada estadística */
+}
+
+/* Elementos individuales de las estadísticas */
+.stat-item {
+    background-color: #292a3a;
+    padding: 15px;
+    border-radius: 10px;
+    transition: transform 0.3s ease;
+}
+
+/* Efecto de hover en cada estadística */
+.stat-item:hover {
+    transform: scale(1.05); /* Efecto de zoom al pasar el cursor */
+}
+
+/* Título de cada estadística */
+.stat-item h3 {
+    font-size: 18px;
+    color: #8a2be2; /* Color destacado para el título de cada estadística */
+    margin-bottom: 5px;
+}
+
+/* Valor de cada estadística */
+.stat-item p {
+    font-size: 22px;
+    font-weight: bold;
+    color: #00bfff;
+    margin: 0;
+}
+/* Contenedor principal de la tarjeta */
+.stats-card {
+    background-color: #1e1e2f;
+    width: 350px; /* Ajusta el ancho según tu preferencia */
+    padding: 20px;
+    border-radius: 15px;
+    color: #fff;
+    font-family: Arial, sans-serif;
+    text-align: center;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    margin: 20px auto; /* Centrado en la página */
+    position: relative;
+}
+
+/* Borde con gradiente al estilo Spottrack */
+.stats-card::before {
+    content: "";
+    position: absolute;
+    top: -3px;
+    left: -3px;
+    right: -3px;
+    bottom: -3px;
+    background: linear-gradient(45deg, #8a2be2, #ff69b4, #00bfff);
+    border-radius: 18px;
+    z-index: -1;
+}
+
+/* Título de la tarjeta */
+.stats-title {
+    font-size: 24px;
+    color: #FFC107;
+    margin-bottom: 20px;
+    font-weight: bold;
+}
+
+/* Contenedor de cada estadística */
+.stats-content {
+    display: flex;
+    flex-direction: column;
+    gap: 15px; /* Espacio entre cada estadística */
+}
+
+/* Elementos individuales de las estadísticas */
+.stat-item {
+    background-color: #292a3a;
+    padding: 15px;
+    border-radius: 10px;
+    transition: transform 0.3s ease;
+    border: 1px solid #8a2be2;
+}
+
+/* Efecto de hover en cada estadística */
+.stat-item:hover {
+    transform: scale(1.05); /* Efecto de zoom al pasar el cursor */
+    border-color: #00bfff;
+}
+
+/* Título de cada estadística */
+.stat-item h3 {
+    font-size: 18px;
+    color: #8a2be2; /* Color destacado para el título de cada estadística */
+    margin-bottom: 5px;
+}
+
+/* Valor de cada estadística */
+.stat-item p {
+    font-size: 22px;
+    font-weight: bold;
+    color: #00bfff;
+    margin: 0;
+}
+/* Contenedor principal de la sección de llamada a la acción */
+.cta-section {
+    background-color: #1e1e2f;
+    padding: 30px;
+    border-radius: 15px;
+    color: #fff;
+    font-family: Arial, sans-serif;
+    text-align: center;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    width: 90%;
+    max-width: 600px;
+    margin: 40px auto;
+    position: relative;
+}
+
+/* Borde con gradiente alrededor del contenedor */
+.cta-section::before {
+    content: "";
+    position: absolute;
+    top: -3px;
+    left: -3px;
+    right: -3px;
+    bottom: -3px;
+    background: linear-gradient(45deg, #8a2be2, #ff69b4, #00bfff);
+    border-radius: 18px;
+    z-index: -1;
+}
+
+/* Título de la sección */
+.cta-title {
+    font-size: 24px;
+    color: #FFC107;
+    margin-bottom: 20px;
+    font-weight: bold;
+}
+
+/* Contenedor del contenido interno */
+.cta-content {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* Imagen de la app en el celular */
+.cta-image {
+    width: 200px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    border: 2px solid #8a2be2;
+    transition: transform 0.3s ease;
+}
+
+/* Efecto de hover para la imagen */
+.cta-image:hover {
+    transform: scale(1.05);
+}
+
+/* Botón de descarga */
+.cta-button {
+    display: inline-block;
+    background: linear-gradient(45deg, #8a2be2, #ff69b4, #00bfff);
+    color: #fff;
+    font-size: 18px;
+    font-weight: bold;
+    padding: 10px 20px;
+    border-radius: 8px;
+    text-decoration: none;
+    transition: background 0.3s ease, transform 0.3s ease;
+}
+
+/* Efecto de hover en el botón */
+.cta-button:hover {
+    background: linear-gradient(45deg, #00bfff, #ff69b4, #8a2be2);
+    transform: scale(1.1);
+}
+/* Contenedor principal de la sección de llamada a la acción */
+.cta-section {
+    background-color: #1e1e2f;
+    padding: 30px;
+    border-radius: 15px;
+    color: #fff;
+    font-family: Arial, sans-serif;
+    text-align: center;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    width: 90%;
+    max-width: 600px;
+    margin: 40px auto;
+    position: relative;
+}
+
+/* Borde con gradiente alrededor del contenedor */
+.cta-section::before {
+    content: "";
+    position: absolute;
+    top: -3px;
+    left: -3px;
+    right: -3px;
+    bottom: -3px;
+    background: linear-gradient(45deg, #8a2be2, #ff69b4, #00bfff);
+    border-radius: 18px;
+    z-index: -1;
+}
+
+/* Título de la sección */
+.cta-title {
+    font-size: 24px;
+    color: #FFC107;
+    margin-bottom: 20px;
+    font-weight: bold;
+}
+
+/* Contenedor del contenido interno */
+.cta-content {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* Imagen de la app en el celular */
+.cta-image {
+    width: 200px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease;
+}
+
+/* Efecto de hover para la imagen */
+.cta-image:hover {
+    transform: scale(1.05);
+}
+
+/* Botón de descarga */
+.cta-button {
+    display: inline-block;
+    background: linear-gradient(45deg, 
+.status-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-color: #1e1e2f;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    width: 420px; /* Un poco más ancho que el iframe */
+    font-family: Arial, sans-serif;
+    color: #fff;
+    text-align: center;
+    margin: 0 auto;
 }
