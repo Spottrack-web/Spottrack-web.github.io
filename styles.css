@@ -1,3 +1,936 @@
+/* Importamos Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+
+/* Aplicamos la fuente general */
+body {
+  font-family: 'Poppins', sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #0d0d22; /* Fondo azul oscuro */
+  color: #ffffff;
+}
+
+/* Fondo general de la sección */
+.blog-section {
+  padding: 40px;
+  background-color: #010013; /* Azul oscuro */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Contenedor de los blogs */
+.blog-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+  max-width: 1200px;
+}
+
+/* Cada tarjeta del blog */
+.blog-card {
+  background: #0d0d22; /* Azul más oscuro */
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  overflow: hidden;
+  width: 45%; /* 2 blogs por fila */
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  color: #ffffff; /* Texto blanco */
+}
+
+.blog-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
+}
+
+/* Imagen del blog */
+.blog-image {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-bottom: 2px solid #ffffff;
+}
+
+/* Título del blog */
+.blog-title {
+  font-size: 24px;
+  font-weight: 600;
+  color : #ff69b4;
+  margin: 15px 0 10px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* Descripción del blog */
+.blog-description {
+  font-size: 16px;
+  font-weight: 400;
+  color: #d9d9d9; /* Gris claro */
+  margin: 0 15px 20px;
+  line-height: 1.6;
+  text-align: center;
+}
+
+/* Botón "Leer más" */
+.btn-read-more {
+background: linear-gradient(45deg, #8a2be2, #ff69b4, #00bfff); /* Azul más vivo */
+  color: #fff;
+  text-decoration: none;
+  padding: 10px 20px;
+  font-size: 16px;
+  font-weight: 600;
+  border-radius: 4px;
+  border: none;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.3s ease;
+}
+
+.btn-read-more:hover {
+  background: linear-gradient(45deg, #8a2be2, #ff69b4, #00bfff);
+  transform: scale(1.05);
+}
+
+/* Contenedor del blog detallado */
+.blog-detail {
+  display: none;
+  padding: 20px;
+  background: #0d0d22; /* Azul oscuro */
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+  text-align: center;
+  margin-top: 20px;
+  max-width: 800px;
+  width: 100%;
+  color: #ffffff;
+}
+
+/* Botón de volver */
+.btn-back {
+  display: inline-block;
+  background: linear-gradient(45deg, #8a2be2, #ff69b4, #00bfff);
+  color: #fff;
+  text-decoration: none;
+  padding: 10px 20px;
+  font-size: 16px;
+  font-weight: 600;
+  border-radius: 4px;
+  border: none;
+  cursor: pointer;
+  margin-bottom: 20px;
+  transition: background 0.3s ease, transform 0.3s ease;
+}
+
+.btn-back:hover {
+  background: linear-gradient(45deg, #8a2be2, #ff69b4, #00bfff);
+  transform: scale(1.05);
+}
+
+/* Estilo general para los botones */
+.contact-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-top: 20px;
+}
+
+/* Estilo base de los botones */
+.btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 12px 20px;
+  font-size: 16px;
+  font-weight: bold;
+  text-decoration: none;
+  border-radius: 8px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  color: #fff;
+  text-align: center;
+}
+
+/* Botón de Discord */
+.discord-btn {
+  background: linear-gradient(45deg, #7289da, #5865f2);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.discord-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+}
+
+/* Botón de Correo */
+.email-btn {
+  background: linear-gradient(45deg, #ff8a65, #ff7043);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.email-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+}
+
+/* Iconos dentro de los botones */
+.icon {
+  font-size: 20px;
+}
+
+/* Ajustes para pantallas más pequeñas */
+@media (max-width: 480px) {
+  .contact-buttons {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .btn {
+    width: 100%;
+  }
+}
+
+/* Contenedor principal para las novedades */
+.novedades-container {
+    width: 100%; /* Ancho completo */
+    padding: 40px 20px;
+    background-color: #010013;
+    color: #fff;
+    font-family: Arial, sans-serif;
+    text-align: center;
+}
+
+/* Título de la sección */
+.novedades-title {
+    font-size: 28px;
+    color: #FFC107;
+    margin-bottom: 30px;
+    font-weight: bold;
+}
+
+/* Contenedor de los ítems */
+.novedades-content {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* Tres columnas por fila */
+    gap: 20px;
+    margin-top: 20px;
+    max-width: 100%; /* Asegura que no haya desbordamiento horizontal */
+    overflow-x: hidden; /* Previene desplazamiento horizontal */
+}
+
+/* Estilo para cada contenedor de novedades */
+.novedades-item {
+    background-color: #0d0d22;
+    padding: 20px;
+    border-radius: 10px;
+    border: 1px solid #8a2be2;
+    transition: transform 0.3s ease;
+}
+
+/* Título de cada novedad */
+.novedades-item-title {
+    font-size: 20px;
+    color:  #8a2be2, #ff69b4, #00bfff;
+    margin-bottom: 10px;
+}
+
+/* Descripción de cada novedad */
+.novedades-item-description {
+    font-size: 16px;
+    color: #00bfff;
+}
+
+/* Efecto de hover en cada novedad */
+.novedades-item:hover {
+    transform: scale(1.05); /* Efecto de zoom al pasar el cursor */
+    border-color: #00bfff;
+}
+
+/* Ajuste para pantallas pequeñas */
+@media (max-width: 768px) {
+    .novedades-content {
+        grid-template-columns: repeat(2, 1fr); /* Dos columnas en pantallas más pequeñas */
+    }
+}
+
+@media (max-width: 480px) {
+    .novedades-content {
+        grid-template-columns: 1fr; /* Una columna en pantallas muy pequeñas */
+    }
+}
+
+/* Estilos para la barra de navegación */
+.navbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background-color: #110e22;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    color: #fff;
+    z-index: 1000;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+/* Logo y nombre */
+.navbar .logo {
+    display: flex;
+    align-items: center;
+}
+
+.navbar .logo img {
+    width: 35px;
+    height: 35px;
+    margin-right: 10px;
+}
+
+.navbar .logo span {
+    font-size: 1.2em;
+    font-weight: bold;
+}
+
+/* Enlaces principales alineados al centro */
+.navbar .nav-links {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    flex-grow: 1;
+    margin-left: 19%;
+}
+
+.navbar .nav-links a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 1.1em;
+    margin: 0 15px;
+    padding: 8px 12px;
+    transition: color 0.3s, background-image 0.3s, border-radius 0.3s;
+}
+
+.navbar .nav-links a:hover {
+    color: transparent;
+    background-image: linear-gradient(45deg, #8a2be2, #ff69b4, #00bfff);
+    -webkit-background-clip: text;
+    background-clip: text;
+}
+
+/* Botón "Más" separado y ajustable */
+.navbar .dropdown {
+    position: relative;
+    margin-left: 250px; /* Empuja el botón hacia la derecha */
+}
+
+.navbar .dropdown .dropdown-button {
+    cursor: pointer;
+    padding: 8px 12px;
+    color: #fff;
+    font-size: 1.1em;
+    background-color: transparent;
+    border: none;
+    outline: none;
+    transition: color 0.3s, transform 0.3s;
+}
+
+.navbar .dropdown .dropdown-button:hover {
+    color: transparent;
+    background-image: linear-gradient(45deg, #8a2be2, #ff69b4, #00bfff);
+    -webkit-background-clip: text;
+    background-clip: text;
+    transform: scale(1.1); /* Efecto visual al pasar el mouse */
+}
+
+/* Menú desplegable centrado con el botón "Más" */
+.navbar .dropdown .dropdown-menu {
+    display: block;
+    position: absolute;
+    top: 100%;
+    left: 50%; /* Centra horizontalmente el menú con respecto al botón */
+    transform: translateX(-50%) translateY(-10px); /* Ajusta para centrar */
+    background-color: #110e22;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    border-radius: 5px;
+    overflow: hidden;
+    z-index: 1000;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.navbar .dropdown:hover .dropdown-menu {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateX(-50%) translateY(0); /* Suaviza la transición hacia abajo */
+}
+
+.navbar .dropdown .dropdown-menu a {
+    display: block;
+    padding: 10px 15px;
+    color: #fff;
+    text-decoration: none;
+    font-size: 0.9em;
+    white-space: nowrap;
+    transition: color 0.3s;
+}
+
+.navbar .dropdown .dropdown-menu a:hover {
+    color: transparent;
+    background-image: linear-gradient(45deg, #8a2be2, #ff69b4, #00bfff);
+    -webkit-background-clip: text;
+    background-clip: text;
+}
+
+/* Clases para mover el botón "Más" y el menú */
+.navbar .dropdown.movable {
+    margin-left: -100px; /* Separa el botón de los otros */
+}
+
+.navbar .dropdown.movable .dropdown-menu {
+    right: 30px; /* Ajustar la posición horizontal del menú desplegable */
+}
+
+/* Espacio superior para el contenido debajo de la barra */
+.content {
+    padding-top: 80px;
+}
+
+/* Ocultar secciones por defecto */
+.apartado {
+    display: none;
+}
+
+/* General styles */
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background-color: #f9f9f9;
+}
+
+.novedades {
+  position: relative;
+  width: 100%;
+  max-width: 1200px;
+  margin: 50px auto;
+  overflow: hidden;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.slider {
+  position: relative;
+  display: flex;
+  width: 100%;
+  height: 500px;
+}
+
+.slide {
+  position: absolute;
+  top: 0;
+  left: 100%;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  opacity: 0;
+  z-index: 0;
+  transition: none;
+}
+
+.slide.active {
+  left: 0;
+  opacity: 1;
+  z-index: 1;
+  animation: fadeInWithBlack 1s ease-in-out;
+}
+
+/* Animación de fondo negro que desaparece */
+@keyframes fadeInWithBlack {
+  0% {
+    opacity: 0;
+    background-color: black;
+  }
+  50% {
+    opacity: 0.5;
+    background-color: black;
+  }
+  100% {
+    opacity: 1;
+    background-color: transparent;
+  }
+}
+
+/* Text overlay */
+.text-overlay {
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.description {
+  font-size: 20px;
+  color: #fff;
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
+  margin-bottom: 10px;
+  animation: fadeInOut 1s ease-in-out;
+}
+
+@keyframes fadeInOut {
+  0%, 100% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+/* Next button */
+.next-slide {
+  padding: 10px 20px;
+  font-size: 16px;
+  background: linear-gradient(45deg, #8a2be2, #ff69b4, #00bfff);
+  color: #fff;
+  border: none;
+  border-radius: 25px;
+  cursor: pointer;
+  transition: transform 0.3s ease-in-out;
+}
+
+.next-slide:hover {
+  transform: scale(1.1);
+}
+
+/* Action button for each slide */
+.action-button {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  padding: 10px 20px;
+  font-size: 16px;
+  color: #fff;
+  text-decoration: none;
+  background: linear-gradient(45deg, #8a2be2, #ff69b4, #00bfff);
+  border-radius: 25px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease-in-out;
+}
+
+.action-button:hover {
+  transform: scale(1.1);
+}
+
+/* Cursor circle */
+.cursor-circle {
+  position: absolute;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  pointer-events: none;
+  color: #fff;
+  font-size: 14px;
+  font-weight: bold;
+  z-index: 2;
+}
+
+.cursor-circle.visible {
+  display: flex;
+  animation: pulse 0.8s infinite;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+/* Estilo general */
+body {
+    background-color: #0c0c1a;
+    margin: 0;
+    font-family: Arial, sans-serif;
+    text-align: center;
+    color: white;
+}
+
+/* Contenedor principal */
+.categoria-seleccion-contenedor {
+    max-width: 1000px;
+    margin: 50px auto;
+    padding: 20px;
+    background: #0d0d22;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(6, 6, 24, 0.5);
+}
+
+/* Título */
+.titulo {
+    margin-bottom: 20px;
+    font-size: 28px;
+    color: #0d0d22;
+}
+
+/* Contenedor de categorías */
+.categorias-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+}
+
+.categoria-card {
+    width: 150px;
+    padding: 10px;
+    background: #0c0c1a;
+    border: 2px solid #333;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.categoria-card img {
+    width: 100px;
+    height: 100px;
+    margin-bottom: 10px;
+    border-radius: 10px;
+}
+
+.categoria-card h3 {
+    font-size: 16px;
+    color: #cccccc;
+    margin: 5px 0;
+}
+
+.categoria-card p {
+    font-size: 12px;
+    color: #aaaaaa;
+}
+
+.categoria-card:hover {
+    background-color: #ff79c6;
+    transform: scale(1.05);
+}
+
+.categoria-card:hover h3,
+.categoria-card:hover p {
+    color: #ffffff;
+}
+
+/* Botón estilo "Seleccionar Eventos" */
+.event-btn {
+    background: linear-gradient(45deg, #8a2be2, #ff79c6, #00bfff);
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    font-size: 18px;
+    border-radius: 20px;
+    cursor: pointer;
+    margin: 10px;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.event-btn:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+/* Resultado */
+.resultado-contenedor {
+    margin-top: 20px;
+}
+
+.resultado-contenedor .categoria-card {
+    display: inline-block;
+    margin: 10px;
+}
+/* Mensaje de advertencia */
+.mensaje-advertencia {
+    background-color: #ffcc00;
+    color: #333;
+    text-align: center;
+    padding: 10px;
+    font-size: 16px;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    border-bottom: 2px solid #d1a700;
+}
+
+/* Estilo de tarjeta seleccionada */
+.categoria-card.selected {
+    border: 3px solid #ff79c6;
+    background-color: #0c0c1a;
+    box-shadow: 0 0 10px #ff79c6;
+    transform: scale(1.05);
+}
+
+.categoria-card.selected h3,
+.categoria-card.selected p {
+    color: #ff79c6;
+}
+
+/* Estilo para la descripción */
+.event-description {
+    margin-top: 10px;
+    color: #aaaaaa; /* Gris claro */
+    font-size: 14px;
+    line-height: 1.4;
+    text-align: center;
+}
+
+/* Estilo general 2 */
+body {
+    background-color: #d3d3d3; /* Fondo gris */
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+
+/* Contenedor principal */
+.evento-contenedor {
+    max-width: 900px;
+    margin: 50px auto;
+    padding: 20px;
+    background: #0d0d22;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    text-align: center;
+}
+
+/* Título */
+.titulo {
+    margin-bottom: 20px;
+    color: #0d0d22;
+}
+
+/* Botón */
+.event-btn {
+    background: linear-gradient(45deg, #8a2be2, #ff69b4, #00bfff);
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    font-size: 18px;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    z-index: 2;
+}
+
+.event-btn:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+/* Menú desplegable centrado */
+.boton-contenedor {
+    position: relative; /* Relativo al botón */
+    display: flex;
+    justify-content: center; /* Centrado */
+    margin-top: 20px;
+}
+
+.event-menu {
+    display: none; /* Oculto por defecto */
+    position: absolute;
+    top: calc(75% + 5px); /* Justo debajo del botón */
+    left: 38%; /* Centrado */
+    transform: translateX(1%);
+    background: #0d0d22;
+    color: white;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    border-radius: 0 0 12px 12px; /* Puntitas redondeadas abajo */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    animation: fadeIn 0.3s ease;
+    z-index: 1;
+    width: 200px;
+    text-align: center;
+}
+
+.event-menu.show {
+    display: block; /* Mostrar el menú */
+}
+
+.event-menu li {
+    padding: 10px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.event-menu li:hover {
+    background: #bd93f9;
+}
+
+/* Contenedor de eventos */
+.events-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: nowrap; /* Fuerza una sola fila */
+    margin-top: 20px;
+    background-color: #0f102a;
+    padding: 20px;
+    border-radius: 10px;
+    gap: 20px;
+}
+
+.event-card {
+    padding: 15px;
+    background: #0d0d22;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    width: 250px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.event-card img {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.event-card h3 {
+    margin-top: 10px;
+    color: #cccccc;
+    transition: color 0.3s ease;
+}
+
+.event-card:hover {
+    background-color: #ff79c6;
+    transform: scale(1.05);
+}
+
+.event-card:hover h3 {
+    color: #ffffff;
+}
+
+/* Animación del menú */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translate(-50%, -10px);
+    }
+    to {
+        opacity: 1;
+        transform: translate(-50%, 0);
+    }
+}
+
+/* Estilo general */
+body {
+  background-color: #121212;
+  color: #fff;
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+.comments-section {
+  text-align: center;
+  margin: 50px auto;
+  color: #fff;
+  font-family: Arial, sans-serif;
+}
+
+.comments-section h2 {
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+.comments {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.comment {
+  background-color: #0d0d22;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  padding: 15px;
+  width: 250px;
+  text-align: center;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.comment:hover {
+  background-color: #ff79c6;
+  transform: translateY(-5px);
+}
+
+.profile-pic {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  margin-bottom: 10px;
+  object-fit: cover;
+}
+
+.comment-text {
+  font-size: 14px;
+  margin: 10px 0;
+}
+
+.user-info {
+  margin-top: 10px;
+}
+
+.role {
+  display: block;
+  font-size: 12px;
+  margin-bottom: 5px;
+}
+
+.developer {
+  color: #8be9fd;
+}
+
+.staff {
+  color: #50fa7b;
+}
+
+.creator {
+  color: #ff5555;
+}
+
+.user {
+  color: #bd93f9;
+}
+
+.username {
+  font-size: 14px;
+  font-weight: bold;
+}
 .main-content {
   display: flex;
   align-items: center;
@@ -34,62 +967,10 @@ h1 {
   margin-left: auto;
 }
 
-/* Barra de navegación */
-.navbar {
-  position: sticky;
-  top: 0;
-  z-index: 1000;
-  background-color: #ff7ce2; /* Color solicitado */
-  padding: 12px 20px;
-  border-radius: 0 0 12px 12px; /* Solo esquinas inferiores redondeadas */
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2); /* Sombra para resaltar */
-  animation: fadeSlideDown 1s ease-out; /* Animación de aparición */
-}
-
-/* Estilos de la lista de navegación */
-.navbar ul {
-  display: flex;
-  list-style: none;
-  margin: 0;
-  padding: 0;
-}
-
-.navbar li {
-  margin: 0 15px;
-}
-
-.navbar a {
-  text-decoration: none;
-  color: white;
-  font-size: 18px;
-  font-weight: bold;
-  transition: all 0.3s ease;
-}
-
-.navbar a:hover {
-  color: #ffdd00; /* Color de hover */
-  transform: scale(1.1); /* Efecto de ampliación suave */
-}
-
-/* Animación para la barra */
-@keyframes fadeSlideDown {
-  from {
-    transform: translateY(-100%);
-    opacity: 0;
-  }
-  to {
-    transform: translateY(0);
-    opacity: 1;
-  }
-}
-
 /* Estilo general */
 body {
   font-family: Arial, sans-serif;
-  background-color: #121212; /* Fondo oscuro */
+  background-color: #ff79c6; /* Fondo oscuro */
   color: white;
   margin: 0;
   padding: 0;
@@ -107,9 +988,10 @@ main {
   padding: 20px;
 }
 
+
 /* Contenedor FAQ incrustado */
 .faq-container {
-  background-color: #2c2c2c; /* Fondo gris oscuro */
+  background-color: #0d0d22; /* Fondo gris oscuro */
   width: 100%;
   max-width: 400px;
   border-radius: 10px;
@@ -204,7 +1086,7 @@ main {
 
 /* Contenedor principal con borde de gradiente */
 .status-container {
-    background: #222;
+    background: #0d0d22;
     padding: 20px;
     width: 350px;
     border-radius: 12px;
@@ -241,27 +1123,71 @@ main {
     list-style: none;
     padding: 0;
     margin: 0 auto 15px;
-    text-align: left; /* Centra el texto dentro del contenedor */
-    display: inline-block;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
 }
 
-/* Cada elemento de estado */
+/* Cada elemento de la lista con contenedor animado */
 .status-list li {
+    background: #0b0916;
+    border-radius: 12px;
+    padding: 15px 20px;
     display: flex;
     align-items: center;
     gap: 10px;
     font-size: 16px;
-    margin-bottom: 8px;
+    color: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease, background 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Efecto de hover en cada contenedor */
+.status-list li:hover {
+    background: linear-gradient(45deg, #8a2be2, #ff69b4, #00bfff);
+    transform: translateY(-5px);
+}
+
+/* Animación de entrada para cada contenedor */
+.status-list li {
+    opacity: 0;
+    animation: fadeIn 0.5s ease forwards;
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 /* Ícono de verificación */
 .check-icon {
     width: 16px;
     height: 16px;
-    background-color: #28a745; /* Verde para el icono */
+    background-color: #28a745;
     mask: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path fill="white" d="M6.173 11.01l-3.29-3.29a.533.533 0 0 1 0-.755l.754-.754c.208-.209.547-.209.755 0L6.55 8.778l5.27-5.27a.533.533 0 0 1 .754 0l.755.755c.208.208.208.546 0 .754l-6.603 6.603a.533.533 0 0 1-.754 0z"/></svg>');
     background-size: contain;
     flex-shrink: 0;
+}
+
+/* Contenedor del texto, centrado */
+.text-content {
+    flex: 1;
+    text-align: center; /* Centrar el texto */
+    font-weight: bold;
+}
+
+/* Animación de fondo al pasar el mouse */
+.text-content:hover {
+    color: #fff;
+    text-shadow: 0 0 5px #ff69b4, 0 0 10px #8a2be2;
 }
 
 /* Contenedor para el iframe de Better Uptime */
@@ -271,123 +1197,13 @@ main {
     justify-content: center;
 }
 
-/* Contenedor principal */
-.status-container {
-    background: #222;
-    padding: 20px;
-    width: 350px;
-    border-radius: 12px;
-    text-align: center;
-    font-family: Arial, sans-serif;
-    color: #fff;
-    margin: 0 auto;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-}
-
-/* Título */
-.status-container h2 {
-    font-size: 24px;
-    color: #FFC107;
-    margin-bottom: 15px;
-}
-
-/* Lista de estado */
-.status-list {
-    list-style: none;
-    padding: 0;
-    margin: 0 0 15px;
-}
-
-/* Cada elemento de estado */
-.status-list li {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    font-size: 16px;
-    margin-bottom: 8px;
-}
-
-/* Ícono de verificación */
-.check-icon {
-    width: 16px;
-    height: 16px;
-    background-color: #28a745; /* Verde para el icono */
-    mask: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path fill="white" d="M6.173 11.01l-3.29-3.29a.533.533 0 0 1 0-.755l.754-.754c.208-.209.547-.209.755 0L6.55 8.778l5.27-5.27a.533.533 0 0 1 .754 0l.755.755c.208.208.208.546 0 .754l-6.603 6.603a.533.533 0 0 1-.754 0z"/></svg>');
-    background-size: contain;
-}
-
-/* Contenedor para el iframe de Better Uptime */
-.status-uptime {
-    margin-top: 15px;
-}
-
-/* Contenedor principal del banner */
-.update-banner {
-    background: #222;
-    padding: 20px;
-    width: 500px; /* Ajusta el ancho aquí para hacerlo más amplio */
-    border-radius: 10px;
-    text-align: center;
-    font-family: Arial, sans-serif;
-    color: #fff;
-    margin: 0 auto; /* Centra el contenedor horizontalmente */
-    position: relative;
-    top: 0px; /* Ajusta esta propiedad para mover el contenedor hacia abajo */
-    left: 0px; /* Ajusta esta propiedad para mover el contenedor hacia la derecha */
-}
-
-/* Borde con gradiente */
-.update-banner::before {
-    content: "";
-    position: absolute;
-    top: -3px;
-    left: -3px;
-    right: -3px;
-    bottom: -3px;
-    background: linear-gradient(45deg, #8a2be2, #ff69b4, #00bfff);
-    border-radius: 12px;
-    z-index: -1;
-}
-
-/* Título */
-.update-banner h2 {
-    font-size: 20px;
-    color: #FFC107;
-    margin-bottom: 12px;
-}
-
-/* Lista de novedades */
-.update-list {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-}
-
-/* Estilos para cada novedad */
-.update-list li {
-    display: flex;
-    align-items: center;
-    gap: 10px; /* Espacio entre el ícono y el texto */
-    margin-bottom: 8px;
-    font-weight: normal;
-}
-
-/* Ícono de verificación */
-.check-icon {
-    width: 16px;
-    height: 16px;
-    background-color: #28a745; /* Verde para el icono */
-    mask: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path fill="white" d="M6.173 11.01l-3.29-3.29a.533.533 0 0 1 0-.755l.754-.754c.208-.209.547-.209.755 0L6.55 8.778l5.27-5.27a.533.533 0 0 1 .754 0l.755.755c.208.208.208.546 0 .754l-6.603 6.603a.533.533 0 0 1-.754 0z"/></svg>');
-    background-size: contain;
-    flex-shrink: 0; /* Evita que el ícono cambie de tamaño o posición */
-}
 
 /* Estilos generales */
 body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #333; /* Fondo gris oscuro */
+    background-color: #4bf4e1; /* Fondo gris oscuro */
     color: #e0e0e0;
     text-align: center;
 }
@@ -403,96 +1219,113 @@ p {
     color: #d0d0d0; /* Color de texto gris claro */
 }
 
-/* Sección de Bienvenida */
-#bienvenida {
-    padding: 40px 20px;
-    background-color: #333; /* Fondo gris oscuro */
+/* Contenedor principal del banner */
+.update-banner {
+    background: linear-gradient(135deg, #0d0d22, #0d0d22);
+    padding: 30px;
+    width: 700px;
+    border-radius: 15px;
+    text-align: center;
+    font-family: 'Arial', sans-serif;
+    color: #0d0d22;
+    margin: 50px auto;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
 }
 
-.botones-descarga .btn {
-    display: inline-block;
-    margin: 10px;
-    padding: 10px 20px;
-    color: #333; /* Color del texto */
-    background-color: #888; /* Fondo gris intermedio */
-    border-radius: 8px;
-    text-decoration: none;
+/* Título */
+.update-banner h2 {
+    font-size: 28px;
     font-weight: bold;
-    transition: background-color 0.3s;
+    color:  #8a2be2, #ff69b4, #00bfff;
+    text-transform: uppercase;
+    margin-bottom: 20px;
 }
 
-.botones-descarga .btn:hover {
-    background-color: #666; /* Cambia a un gris más oscuro al hacer hover */
-}
-
-/* Sección de Imágenes de la App */
-#imagenes-app {
-    padding: 40px 20px;
-    background-color: #333; /* Fondo gris oscuro */
-}
-
-.galeria {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 10px;
-}
-
-.galeria img {
-    max-width: 200px;
-    border-radius: 10px;
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
-    transition: transform 0.3s;
-}
-
-.galeria img:hover {
-    transform: scale(1.05);
-}
-
-/* Footer */
-footer {
-    padding: 30px 20px;
-    background-color: #333; /* Fondo gris oscuro */
-    color: #bbb;
-}
-
-footer h2, footer h3 {
-    color: #e0e0e0;
-}
-
-footer .redes-sociales {
-    margin: 20px 0;
-}
-
-footer .redes-sociales img {
-    width: 40px;
-    margin: 0 10px;
-    filter: grayscale(100%); /* Cambia los iconos de redes sociales a escala de grises */
-    transition: opacity 0.3s;
-}
-
-footer .redes-sociales img:hover {
-    opacity: 0.8;
-}
-
-footer .formas-apoyo ul {
+/* Lista de novedades */
+.update-list {
     list-style: none;
     padding: 0;
+    margin: 0;
 }
 
-footer .formas-apoyo ul li {
-    display: inline;
-    margin: 0 10px;
+.update-list li {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #0b0916;
+    border-radius: 10px;
+    padding: 15px 20px;
+    margin-bottom: 15px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
 }
 
-footer .formas-apoyo ul li a {
-    color: #ccc; /* Color gris claro */
-    text-decoration: none;
+.update-list li:hover {
+    transform: scale(1.02);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
 }
 
-footer .formas-apoyo ul li a:hover {
-    text-decoration: underline;
+/* Estilo del ícono del checkbox */
+input[type="checkbox"] {
+    display: none;
 }
+
+input[type="checkbox"] + .icon {
+    position: relative;
+    width: 24px;
+    height: 24px;
+    border: 2px solid #aaa;
+    border-radius: 50%;
+    background-color: #333;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    box-shadow: 0 0 0 rgba(0, 0, 0, 0);
+}
+
+input[type="checkbox"]:checked + .icon {
+    border-color: #4CAF50;
+    background-color: #4CAF50;
+    box-shadow: 0 0 15px rgba(76, 175, 80, 0.7); /* Efecto iluminado */
+}
+
+input[type="checkbox"]:checked + .icon::before {
+    content: '✔';
+    color: white;
+    font-size: 16px;
+    animation: checkmark 0.3s ease;
+}
+
+/* Animaciones */
+@keyframes checkmark {
+    0% {
+        transform: scale(0);
+        opacity: 0;
+    }
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+/* Texto de la novedad */
+.text-content {
+    flex: 1;
+    text-align: center;
+    font-size: 18px;
+    font-weight: bold;
+    color: #fff;
+}
+
+/* Número de novedad */
+.novedad-number {
+    font-size: 18px;
+    font-weight: bold;
+    color: #FFC107;
+}
+
+
 /* Estilos generales */
 body {
     font-family: Arial, sans-serif;
@@ -518,52 +1351,6 @@ p {
     margin: 10px auto;
     line-height: 1.6;
     color: #d0d0d0; /* Color de texto gris claro */
-}
-
-/* Sección de Bienvenida */
-#bienvenida {
-    padding: 40px 20px;
-    background-color: #333; /* Fondo gris oscuro */
-}
-
-.botones-descarga .btn {
-    display: inline-block;
-    margin: 10px;
-    padding: 10px 20px;
-    color: #333; /* Color del texto */
-    background-color: #888; /* Fondo gris intermedio */
-    border-radius: 8px;
-    text-decoration: none;
-    font-weight: bold;
-    transition: background-color 0.3s;
-}
-
-.botones-descarga .btn:hover {
-    background-color: #666; /* Cambia a un gris más oscuro al hacer hover */
-}
-
-/* Sección de Imágenes de la App */
-#imagenes-app {
-    padding: 40px 20px;
-    background-color: #333; /* Fondo gris oscuro */
-}
-
-.galeria {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 10px;
-}
-
-.galeria img {
-    max-width: 200px;
-    border-radius: 10px;
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
-    transition: transform 0.3s;
-}
-
-.galeria img:hover {
-    transform: scale(1.05);
 }
 
 /* Footer */
@@ -613,6 +1400,7 @@ footer .formas-apoyo ul li a {
 footer .formas-apoyo ul li a:hover {
     text-decoration: underline;
 }
+
 /* Estilos globales */
 * {
     margin: 0;
@@ -622,7 +1410,7 @@ footer .formas-apoyo ul li a:hover {
 }
 
 body {
-    background-color: #2c2c2c; /* Fondo gris oscuro */
+    background-color: #010013; /* Fondo gris oscuro */
     color: #ffffff;
     line-height: 1.6;
 }
@@ -646,159 +1434,7 @@ p {
 #bienvenida {
     padding: 60px 20px;
     text-align: center;
-    background-color: #333333;
-}
-
-.botones-descarga .btn {
-    display: inline-block;
-    background: linear-gradient(45deg, #ff7ce2, #70e1f5, #6a0dad);
-    color: #ffffff;
-    padding: 12px 25px;
-    margin: 10px;
-    border-radius: 25px;
-    text-decoration: none;
-    font-weight: bold;
-    transition: background 0.3s ease;
-}
-
-.botones-descarga .btn:hover {
-    background: linear-gradient(45deg, #6a0dad, #ff7ce2, #70e1f5);
-}
-
-/* Sección de Capturas de la App */
-#imagenes-app {
-    padding: 40px 20px;
-    background-color: #444444;
-    text-align: center;
-}
-
-.galeria {
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-    flex-wrap: wrap;
-}
-
-.galeria img {
-    width: 200px;
-    height: auto;
-    border-radius: 15px;
-    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.5);
-    transition: transform 0.3s ease;
-}
-
-.galeria img:hover {
-    transform: scale(1.05);
-}
-
-/* Sección de Información y Formas de Apoyo */
-#informacion {
-    padding: 40px 20px;
-    background-color: #333333;
-    text-align: center;
-}
-
-.formas-apoyo ul {
-    list-style-type: none;
-    padding: 0;
-    display: flex;
-    justify-content: center;
-    gap: 15px;
-}
-
-.formas-apoyo ul li {
-    display: inline;
-}
-
-.formas-apoyo ul li a {
-    color: #70e1f5;
-    text-decoration: none;
-    font-weight: bold;
-    transition: color 0.3s ease;
-}
-
-.formas-apoyo ul li a:hover {
-    color: #ff7ce2;
-}
-
-/* Sección de Redes Sociales */
-.redes-sociales {
-    margin-top: 30px;
-}
-
-.redes-sociales h3 {
-    color: #ffffff;
-    margin-bottom: 15px;
-}
-
-.redes-sociales ul {
-    list-style-type: none;
-    padding: 0;
-    display: flex;
-    justify-content: center;
-    gap: 15px;
-}
-
-.redes-sociales ul li a {
-    color: #6a0dad;
-    text-decoration: none;
-    font-weight: bold;
-    transition: color 0.3s ease;
-}
-
-.redes-sociales ul li a:hover {
-    color: #ff7ce2;
-}
-
-/* Responsividad */
-@media (max-width: 768px) {
-    .galeria img {
-        width: 150px;
-    }
-
-    .botones-descarga .btn {
-        padding: 10px 20px;
-    }
-
-    .formas-apoyo ul, .redes-sociales ul {
-        flex-direction: column;
-        gap: 10px;
-    }
-}
-/* Estilos globales */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: Arial, sans-serif;
-}
-
-body {
-    background-color: #2c2c2c; /* Fondo gris oscuro */
-    color: #ffffff;
-    line-height: 1.6;
-}
-
-h1, h2, h3 {
-    color: linear-gradient(45deg, #ff7ce2, #70e1f5, #6a0dad); /* Gradiente de rosa, azul y morado */
-    background-clip: text;
-    -webkit-background-clip: text;
-    color: transparent;
-    text-align: center;
-    margin-bottom: 20px;
-}
-
-p {
-    color: #bbbbbb;
-    text-align: center;
-    margin-bottom: 20px;
-}
-
-/* Estilos del Header de Bienvenida */
-#bienvenida {
-    padding: 60px 20px;
-    text-align: center;
-    background-color: #333333;
+    background-color: #010013;
 }
 
 .botones-descarga .btn {
@@ -820,7 +1456,7 @@ p {
 /* Sección de Capturas de la App */
 #imagenes-app {
     padding: 40px 20px;
-    background-color: #444444;
+    background-color: #0d0d22;
     text-align: center;
 }
 
@@ -846,7 +1482,7 @@ p {
 /* Sección de Información y Formas de Apoyo */
 #informacion {
     padding: 40px 20px;
-    background-color: #333333;
+    background-color: #010013;
     text-align: center;
 }
 
@@ -945,94 +1581,7 @@ p {
     padding-left: 90px; /* Alineación a la izquierda */
 }
 
-/* Barra de navegación más pequeña */
-.navbar {
-    display: flex;
-    justify-content: space-around;
-    background-color: #222; /* Fondo oscuro */
-    padding: 4px 0; /* Espacio vertical reducido para hacer la barra más pequeña */
-    height: 40px; /* Altura de la barra más compacta */
-}
 
-/* Botones de navegación más pequeños */
-.navbar a {
-    font-size: 0.8em; /* Tamaño de texto reducido */
-    padding: 4px 8px; /* Espacio más compacto dentro de los botones */
-    color: #fff;
-    text-decoration: none;
-    border-radius: 5px; /* Bordes ligeramente redondeados */
-    transition: background-color 0.3s ease;
-}
-
-.navbar a:hover {
-    background-color: #444; /* Color de fondo al pasar el cursor */
-}
-/* Barra de navegación más pequeña */
-.navbar {
-    display: flex;
-    justify-content: space-around;
-    align-items: center; /* Alinea los elementos verticalmente */
-    background-color: #222; /* Fondo oscuro */
-    padding: 4px 0; /* Espacio vertical reducido para hacer la barra más pequeña */
-    height: 40px; /* Altura de la barra */
-}
-
-/* Botones de navegación más pequeños y con texto centrado */
-.navbar a {
-    font-size: 0.8em; /* Tamaño de texto reducido */
-    padding: 6px 10px; /* Ajusta el espacio dentro del botón */
-    color: #fff;
-    text-decoration: none;
-    border-radius: 5px; /* Bordes redondeados */
-    display: flex;
-    align-items: center; /* Alinea el texto verticalmente */
-    justify-content: center; /* Alinea el texto horizontalmente */
-    transition: background-color 0.3s ease;
-    height: 100%; /* Hace que los botones ocupen toda la altura de la barra */
-}
-
-.navbar a:hover {
-    background-color: #444; /* Color de fondo al pasar el cursor */
-}
-/* Estilo para los botones en la barra de navegación */
-.navbar a {
-    color: #fff;
-    font-size: 1em;
-    padding: 10px 20px;
-    border-radius: 10px;
-    border: 2px solid transparent; /* Bordes invisibles inicialmente */
-    background-color: transparent; /* Fondo transparente */
-    text-decoration: none;
-    position: relative;
-    transition: all 0.3s ease;
-}
-
-/* Borde degradado alrededor de los botones */
-.navbar a::before {
-    content: "";
-    position: absolute;
-    top: -2px;
-    left: -2px;
-    right: -2px;
-    bottom: -2px;
-    border-radius: 10px;
-    background: linear-gradient(45deg, #a64bf4, #f464c4, #4bf4e1);
-    z-index: -1;
-    opacity: 1;
-}
-
-/* Efecto al pasar el cursor sobre el botón */
-.navbar a:hover {
-    background: linear-gradient(45deg, #a64bf4, #f464c4, #4bf4e1); /* Color de fondo degradado */
-    color: #fff; /* Color del texto */
-    border: none; /* Sin borde adicional */
-}
-/* Estilo para el cuerpo */
-body {
-  font-family: Arial, sans-serif;
-  margin: 0;
-  padding: 0;
-}
 
 /* Estilo del mensaje emergente */
 .popup-banner {
@@ -1108,7 +1657,7 @@ body {
   bottom: -100px; /* Fuera de la vista inicialmente */
   left: 50%;
   transform: translateX(-50%);
-  background-color: #222;
+  background-color: #0d0d22;
   color: #fff;
   padding: 15px 20px;
   border-radius: 8px;
@@ -1165,64 +1714,10 @@ body {
 .close-btn:hover {
   color: #ff5a5a;
 }
+
 /* Contenedor principal de la tarjeta */
 .stats-card {
-    background-color: #1e1e2f;
-    width: 350px; /* Ajusta el ancho según tu preferencia */
-    padding: 20px;
-    border-radius: 15px;
-    color: #fff;
-    font-family: Arial, sans-serif;
-    text-align: center;
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-    margin: 0 auto; /* Centrado en la página */
-}
-
-/* Título de la tarjeta */
-.stats-title {
-    font-size: 24px;
-    color: #FFC107;
-    margin-bottom: 20px;
-    font-weight: bold;
-}
-
-/* Contenedor de cada estadística */
-.stats-content {
-    display: flex;
-    flex-direction: column;
-    gap: 15px; /* Espacio entre cada estadística */
-}
-
-/* Elementos individuales de las estadísticas */
-.stat-item {
-    background-color: #292a3a;
-    padding: 15px;
-    border-radius: 10px;
-    transition: transform 0.3s ease;
-}
-
-/* Efecto de hover en cada estadística */
-.stat-item:hover {
-    transform: scale(1.05); /* Efecto de zoom al pasar el cursor */
-}
-
-/* Título de cada estadística */
-.stat-item h3 {
-    font-size: 18px;
-    color: #8a2be2; /* Color destacado para el título de cada estadística */
-    margin-bottom: 5px;
-}
-
-/* Valor de cada estadística */
-.stat-item p {
-    font-size: 22px;
-    font-weight: bold;
-    color: #00bfff;
-    margin: 0;
-}
-/* Contenedor principal de la tarjeta */
-.stats-card {
-    background-color: #1e1e2f;
+    background-color: #0d0d22;
     width: 350px; /* Ajusta el ancho según tu preferencia */
     padding: 20px;
     border-radius: 15px;
@@ -1234,19 +1729,6 @@ body {
     position: relative;
 }
 
-/* Borde con gradiente al estilo Spottrack */
-.stats-card::before {
-    content: "";
-    position: absolute;
-    top: -3px;
-    left: -3px;
-    right: -3px;
-    bottom: -3px;
-    background: linear-gradient(45deg, #8a2be2, #ff69b4, #00bfff);
-    border-radius: 18px;
-    z-index: -1;
-}
-
 /* Título de la tarjeta */
 .stats-title {
     font-size: 24px;
@@ -1260,21 +1742,6 @@ body {
     display: flex;
     flex-direction: column;
     gap: 15px; /* Espacio entre cada estadística */
-}
-
-/* Elementos individuales de las estadísticas */
-.stat-item {
-    background-color: #292a3a;
-    padding: 15px;
-    border-radius: 10px;
-    transition: transform 0.3s ease;
-    border: 1px solid #8a2be2;
-}
-
-/* Efecto de hover en cada estadística */
-.stat-item:hover {
-    transform: scale(1.05); /* Efecto de zoom al pasar el cursor */
-    border-color: #00bfff;
 }
 
 /* Título de cada estadística */
@@ -1291,9 +1758,25 @@ body {
     color: #00bfff;
     margin: 0;
 }
+
+/* Efecto de hover en cada estadística */
+.stat-item:hover {
+    transform: scale(1.05); /* Efecto de zoom al pasar el cursor */
+    border-color: #00bfff;
+}
+
+/* Elementos individuales de las estadísticas */
+.stat-item {
+    background-color: #080917;
+    padding: 15px;
+    border-radius: 10px;
+    transition: transform 0.3s ease;
+    border: 1px solid #8a2be2;
+}
+
 /* Contenedor principal de la sección de llamada a la acción */
 .cta-section {
-    background-color: #1e1e2f;
+    background-color: #0d0d22;
     padding: 30px;
     border-radius: 15px;
     color: #fff;
@@ -1304,19 +1787,6 @@ body {
     max-width: 600px;
     margin: 40px auto;
     position: relative;
-}
-
-/* Borde con gradiente alrededor del contenedor */
-.cta-section::before {
-    content: "";
-    position: absolute;
-    top: -3px;
-    left: -3px;
-    right: -3px;
-    bottom: -3px;
-    background: linear-gradient(45deg, #8a2be2, #ff69b4, #00bfff);
-    border-radius: 18px;
-    z-index: -1;
 }
 
 /* Título de la sección */
@@ -1333,20 +1803,6 @@ body {
     align-items: center;
     flex-direction: column;
     gap: 20px;
-}
-
-/* Imagen de la app en el celular */
-.cta-image {
-    width: 200px;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-    border: 2px solid #8a2be2;
-    transition: transform 0.3s ease;
-}
-
-/* Efecto de hover para la imagen */
-.cta-image:hover {
-    transform: scale(1.05);
 }
 
 /* Botón de descarga */
@@ -1362,55 +1818,12 @@ body {
     transition: background 0.3s ease, transform 0.3s ease;
 }
 
+
 /* Efecto de hover en el botón */
 .cta-button:hover {
     background: linear-gradient(45deg, #00bfff, #ff69b4, #8a2be2);
     transform: scale(1.1);
 }
-/* Contenedor principal de la sección de llamada a la acción */
-.cta-section {
-    background-color: #1e1e2f;
-    padding: 30px;
-    border-radius: 15px;
-    color: #fff;
-    font-family: Arial, sans-serif;
-    text-align: center;
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-    width: 90%;
-    max-width: 600px;
-    margin: 40px auto;
-    position: relative;
-}
-
-/* Borde con gradiente alrededor del contenedor */
-.cta-section::before {
-    content: "";
-    position: absolute;
-    top: -3px;
-    left: -3px;
-    right: -3px;
-    bottom: -3px;
-    background: linear-gradient(45deg, #8a2be2, #ff69b4, #00bfff);
-    border-radius: 18px;
-    z-index: -1;
-}
-
-/* Título de la sección */
-.cta-title {
-    font-size: 24px;
-    color: #FFC107;
-    margin-bottom: 20px;
-    font-weight: bold;
-}
-
-/* Contenedor del contenido interno */
-.cta-content {
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    gap: 20px;
-}
-
 /* Imagen de la app en el celular */
 .cta-image {
     width: 200px;
@@ -1422,24 +1835,4 @@ body {
 /* Efecto de hover para la imagen */
 .cta-image:hover {
     transform: scale(1.05);
-}
-
-/* Botón de descarga */
-.cta-button {
-    display: inline-block;
-    background: linear-gradient(45deg, 
-.status-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    background-color: #1e1e2f;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-    width: 420px; /* Un poco más ancho que el iframe */
-    font-family: Arial, sans-serif;
-    color: #fff;
-    text-align: center;
-    margin: 0 auto;
 }

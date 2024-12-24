@@ -3,39 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bienvenido al Sitio Oficial De Spottrack</title>
+    <title>Bienvenido/a al Sitio Oficial De Spottrack</title>
     <link rel="icon" type="image/png" href="./images/favicon.png">
+    <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3091275743811048" crossorigin="anonymous"></script>
     <style>
-        /* Estilos para la barra de navegación */
-        .navbar {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            background-color: #333;
-            display: flex;
-            justify-content: space-around;
-            padding: 10px 0;
-            color: #fff;
-            z-index: 1000;
-        }
-        .navbar a {
-            color: #fff;
-            text-decoration: none;
-            font-size: 1.1em;
-            padding: 8px 12px;
-        }
-        .navbar a:hover {
-            background-color: #555;
-            border-radius: 5px;
-        }
-
-        /* Espacio superior para el contenido debajo de la barra */
-        .content {
-            padding-top: 60px;
-        }
-
         /* Ocultar secciones por defecto */
         .apartado {
             display: none;
@@ -48,14 +21,32 @@
 <body>
 
     <!-- Barra de navegación -->
-    <nav class="navbar">
-        <a href="#" onclick="showSection('inicio')">Inicio</a>
-        <a href="#" onclick="showSection('buscar')">Novedades</a>
-        <a href="#" onclick="showSection('playlist')">Estado</a>
-        <a href="#" onclick="showSection('ajustes')">Soporte</a>
+  <nav class="navbar">
+    <!-- Logo y nombre -->
+    <div class="logo">
+      <img src="images/logo.png" alt="Logo Spottrack">
+      <span>Spottrack</span>
+    </div>
 
-<a href="#" onclick="showSection('Politicas y privacidad')">Legal</a>
-    </nav>
+    <!-- Enlaces principales -->
+    <div class="nav-links">
+      <a href="#" onclick="showSection('inicio')">Inicio</a>
+      <a href="#" onclick="showSection('novedades')">Novedades</a>
+      <a href="#" onclick="showSection('estado')">Estado</a>
+      <a href="#" onclick="showSection('soporte')">Soporte</a>
+
+      <!-- Menú desplegable -->
+      <div class="dropdown">
+        <button class="dropdown-button">Más</button>
+        <div class="dropdown-menu">
+          <a href="#" onclick="showSection('ajustes')">Ajustes</a>
+          <a href="#" onclick="showSection('legal')">Políticas y Privacidad</a>
+          <a href="#" onclick="showSection('blogs')">Blogs</a>
+        </div>
+      </div>
+    </div>
+  </nav>
+</body>
 
     <!-- Contenedor Principal de Contenido -->
     <div class="content">
@@ -70,12 +61,13 @@
 </div>
         <p>Transforma tu manera de escuchar música con Spottrack: tu app definitiva para disfrutar de tus canciones favoritas sin interrupciones. ¡Descárgala ahora y lleva la experiencia musical al siguiente nivel!"</p>
                 <div class="botones-descarga">
-                    <a href="https://www.mediafire.com/file/w0udhu7bz99az6o/Spottrack_2.4.apk/file" class="btn" download="Spottrack.apk">Descargar para Android</a>
+                    <a href="https://www.amazon.com/gp/product/B0DPDJ5JTP" class="btn" download="Spottrack.apk">Descargar para Android</a>
                 </div>
             </header>
 
+
             <section id="imagenes-app">
-                <h2>Capturas de la App</h2>
+                <h2>Capturas de spottrack</h2>
                 <div class="galeria">
                     <img src="images/captura1.png" alt="Captura de pantalla 1">
                     <img src="images/captura2.png" alt="Captura de pantalla 2">
@@ -109,11 +101,152 @@
                 <h2>Seccion ajustes</h2>
                 <p>El apartado de Ajustes es imprescindible en cualquier app, y en Spottrack no es la excepción. Aquí podrás personalizar tu experiencia ajustando funciones clave, como activar o desactivar la opción "pausar música al apagar el dispositivo" o habilitar el modo de ahorro de datos. Además, tendrás la posibilidad de ajustar tu perfil para que sea único y refleje tu estilo. ¡Todo al alcance de un toque!</p>
 
+  <h2>________________________________________________________________________________________</h2>
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Spottrack</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="comments-section">
+    <h2>Lo que opinan nuestros usuarios</h2>
+    <div id="comments-container" class="comments">
+      <!-- Los comentarios se generarán correctamente aquí -->
+    </div>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
+<h2>_________________________________________________________________________________________</h2>
+  <h2>Los mejores eventos destacados</h2>
+ <html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eventos Spottrack</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Contenedor principal -->
+    <div id="eventos" class="evento-contenedor">
+        
+
+        <!-- Botón para seleccionar eventos -->
+        <div class="boton-contenedor">
+            <button id="event-btn" class="event-btn">
+                Seleccionar Eventos
+            </button>
+            <!-- Menú desplegable -->
+            <ul id="event-menu" class="event-menu">
+                <li onclick="changeEvents('spottrack')">Eventos de Spottrack</li>
+                <li onclick="changeEvents('artistas')">Eventos de Artistas</li>
+            </ul>
+        </div>
+
+        <!-- Contenedor de eventos -->
+        <div id="events-container" class="events-container">
+            <!-- Evento 1 -->
+            <div class="event-card">
+                <img src="images/event1.jpg" alt="Evento 1">
+                <h3>Navidad en Spottrack</h3>
+            </div>
+            <!-- Evento 2 -->
+            <div class="event-card">
+                <img src="images/event2.jpg" alt="Evento 2">
+                <h3>s</h3>
+            </div>
+            <!-- Evento 3 -->
+            <div class="event-card">
+                <img src="images/event3.jpg" alt="Evento 3">
+                <h3>Evento 3 - Spottrack</h3>
+            </div>
+        </div>
+    </div>
+
+    <!-- Script -->
+    <script src="script.js"></script>
+</body>
+</html>
+<h2>_________________________________________________________________________________________</h2>
+  <h2>Selecciona y ve tus categorias favoritas</h2>
+
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Mensaje de advertencia -->
+    <div id="mensaje-advertencia" class="mensaje-advertencia" style="display: none;">
+        ⚠️ <span id="mensaje-texto">Seleccione primero al menos una categoría para realizar esta acción</span>
+    </div>
+
+    <!-- Contenedor principal -->
+    <div class="categoria-seleccion-contenedor">
+      <h2>Categorías</h2>
+
+        <!-- Contenedor de categorías -->
+        <div id="categorias-container" class="categorias-container"></div>
+
+        <!-- Botones -->
+        <button id="listo-btn" class="event-btn">Listo</button>
+        <button id="editar-btn" class="event-btn" style="display: none;">Editar Categorías</button>
+
+        <!-- Lista de categorías seleccionadas -->
+        <div id="resultado" class="resultado-contenedor" style="display: none;"></div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
+<h2>_____________________________________________________________________________________</h2>
+<h2>Novedades trascendentes de spottrack
+
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Novedades Trascendentes - Spottrack</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <section class="novedades">
+    <div class="slider">
+      <div class="slide active" style="background-image: url('images/image1.png');" data-text="Spottrack ya disponible en la tienda de amazon appstore">
+        <a href="https://www.amazon.com/gp/product/B0DPDJ5JTP" class="action-button">Ver en Amazon</a>
+      </div>
+      <div class="slide" style="background-image: url('images/image2.png');" data-text="Explora las nuevas funciones de la version 3.0 de spottrack">
+        <a href="https://nat7614.github.io" class="action-button">Explorar funciones YA</a>
+      </div>
+      <div class="slide" style="background-image: url('images/image3.png');" data-text="Descubre la nueva version de la web y sus nuevas novedades">
+        <a href="https://discord.gg/kRhXAajRDq" class="action-button">Ver novedades en Discord</a>
+      </div>
+      <div class="text-overlay">
+        <p class="description"></p>
+        <button class="next-slide">Siguiente</button>
+      </div>
+      <div class="cursor-circle">
+        <span class="countdown">10</span>
+      </div>
+    </div>
+  </section>
+  <script src="script.js"></script>
+</body>
+</html>
+
+ <h2>_________________________________________________________________________________________</h2>
+
 <div class="cta-section">
     <h2 class="cta-title">¿Preparado para usar Spottrack?</h2>
     <div class="cta-content">
         <img src="images/spottrack.png" alt="Imagen de Spottrack en un celular" class="cta-image">
-        <a href="https://www.mediafire.com/file/w0udhu7bz99az6o/Spottrack_2.4.apk/file" class="cta-button">¡Descargar Spottrack YA!</a>
+        <a href="https://www.amazon.com/gp/product/B0DPDJ5JTP" class="cta-button">¡Descargar Spottrack YA!</a>
     </div>
 </div>
 
@@ -143,15 +276,15 @@
         </div>
 
         <!-- Apartado Novedades -->
-        <div id="buscar" class="apartado">
+        <div id="novedades" class="apartado">
             <h2>Novedades de Actualizaciones</h2>
             <p>Mantente al día con las últimas novedades de Spottrack. En cada actualización, te contamos todos los detalles sobre las nuevas funciones, mejoras y soluciones implementadas, para que siempre estés al tanto de lo que hay de nuevo en la app. ¡No te pierdas nada!<h2>________________________________________________________</h2>
 
 <!-- Sección de Novedades -->
     <div class="news-section">
-        <h2 class="section-title">Actualizacion 2.4</h2>
+        <h2 class="section-title">Actualizacion 3.0</h2>
         <div class="news-card">
-            <p>¡Actualizacion 2.4! En este caso se han corregido un error visual en el apartado de playlist y se ha implementado la funcion de poder escuchar las canciones del dispositivo y mejoras en la interfaz y modo offline
+            <p>¡Actualizacion 3.0! Entre las actualizaciones más destacadas en informacion, se han añadido nuevas secciones y mejoras significativas en el diseño de los ajustes. Además, ahora es posible adelantar y retroceder canciones fácilmente utilizando la barra de tiempo.
 
 <html lang="es">
 <head>
@@ -162,47 +295,242 @@
 </head>
 <body>
     <div class="update-banner">
-        <h2>Novedades</h2>
         <ul class="update-list">
-            <li><span class="check-icon"></span>Mejorado el modo offline</li>
-            <li><span class="check-icon"></span>Solucionado mas bugs visuales poco notables</li>
-            <li><span class="check-icon"></span>Funcion para escuchar canciones del dispositvo</li>
-            <li><span class="check-icon"></span>Mas mejoras en la interfaz de usuario</li>
+            <li>
+                <span class="check-icon"></span>
+                <div class="text-content">Añadido nuevas secciones</div>
+                <span class="novedad-number">#1</span>
+            </li>
+            <li>
+                <span class="check-icon"></span>
+                <div class="text-content">Solucionado más bugs visuales</div>
+                <span class="novedad-number">#2</span>
+            </li>
+            <li>
+                <span class="check-icon"></span>
+                <div class="text-content">Adelantar y atrasar tiempo con la barra</div>
+                <span class="novedad-number">#3</span>
+            </li>
+            <li>
+                <span class="check-icon"></span>
+                <div class="text-content">Mejoras de estilo de configuraciones</div>
+                <span class="novedad-number">#4</span>
+            </li>
+        </ul>
+    </div>
+</body>
+</html>
+          <h2>______________________________________________________________________</h2>
+
+          <h2>Actualizacion 3.0 - web</h2>
+<p>Estamos emocionados de presentarte la mejor actualización de la web hasta ahora. Hemos renovado por completo el estilo global, adoptando un elegante color azul oscuro, optimizado textos clave y remasterizado varios contenedores. Además, hemos incorporado nuevas secciones y apartados, todos con diseños modernos y atractivos.</p>
+ 
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Novedades de Spottrack</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="update-banner">
+        <ul class="update-list">
+            <li>
+                <span class="check-icon"></span>
+                <div class="text-content">Mejorado el estilo global</div>
+                <span class="novedad-number">#1</span>
+            </li>
+            <li>
+                <span class="check-icon"></span>
+                <div class="text-content">Solucionado errores visuales</div>
+                <span class="novedad-number">#2</span>
+            </li>
+            <li>
+                <span class="check-icon"></span>
+                <div class="text-content">Nuevas secciones disponibles</div>
+                <span class="novedad-number">#3</span>
+            </li>
+            <li>
+                <span class="check-icon"></span>
+                <div class="text-content">Mejoras de estilo en contenedores</div>
+                <span class="novedad-number">#4</span>
+            </li>
+            <li>
+                <span class="check-icon"></span>
+                <div class="text-content">Seccion comentarios, eventos, categorias, novedades</div>
+                <span class="novedad-number">#5</span>
+            </li>
+            <li>
+                <span class="check-icon"></span>
+                <div class="text-content">Apartados ajustes, blogs añadidos</div>
+                <span class="novedad-number">#6</span>
+            </li>
+            <li>
+                <span class="check-icon"></span>
+                <div class="text-content">Mejoras en la barra de navegacion</div>
+                <span class="novedad-number">#7</span>
+            </li>
+            <li>
+                <span class="check-icon"></span>
+                <div class="text-content">Optimizado codigos y mejoras de rapidez</div>
+                <span class="novedad-number">#8</span>
+            </li>
         </ul>
     </div>
 </body>
 </html>
 
 
-<h2>_______________________________________________________
+<h2>_______________________________________________________________________</h2>
 
-<h2>Estadisticas</h2>
+<h2>Estadisticas y informacion de spottrack</h2>
 
 <div class="stats-card">
-    <h2 class="stats-title">Estadísticas de Spottrack</h2>
+    <h2 class="stats-title">
     <div class="stats-content">
         <div class="stat-item">
             <h3>Usuarios totales</h3>
-            <p>8</p>
+            <p>52</p>
         </div>
         <div class="stat-item">
             <h3>Canciones Reproducidas</h3>
-            <p>179</p>
+            <p>757</p>
         </div>
         <div class="stat-item">
             <h3>Descargas</h3>
-            <p>8</p>
+            <p>52</p>
+        </div>
+        <!-- Estadísticas adicionales -->
+        <div class="stat-item">
+            <h3>Tienda Disponible</h3>
+            <p>Amazon Appstore</p>
+        </div>
+        <div class="stat-item">
+            <h3>Creador</h3>
+            <p>Developers NXS</p>
+        </div>
+        <div class="stat-item">
+            <h3>Versión de App</h3>
+            <p>3.0</p>
+        </div>
+        <div class="stat-item">
+            <h3>Versión de Web</h3>
+            <p>3.0</p>
+        </div>
+        <div class="stat-item">
+            <h3>Fecha de Lanzamiento</h3>
+            <p>14/9/2024</p>
+      </div>
+    </div>
+</div>
+          <h2>_______________________________________________________________________</h2>
+          <h2>Novedades de artistas y musica</h2>
+<div class="novedades-container">
+    <h2 class="novedades-title">
+    <div class="novedades-content">
+        <!-- Contenedores 1 a 12 -->
+        <div class="novedades-item">
+            <h3 class="novedades-item-title">Spotify Wrapped Argentina 2024</h3>
+            <p class="novedades-item-description">De acuerdo con Spotify Wrapped 2024, los artistas más escuchados en Argentina son: 
+Emilia, Duki, María Becerra, Luck Ra, Bad Bunny, Milo J, Feid, YSY A, Ke Personajes, Tiago PZK.
+Emilia fue la artista más escuchada en el país, convirtiéndose en la primera mujer en alcanzar este hito. María Becerra fue la segunda artista más escuchada en Argentina y la primera mujer más escuchada a nivel global</p>
+        </div>
+        <div class="novedades-item">
+            <h3 class="novedades-item-title">Spotify Wrapped Colombia 2024</h3>
+            <p class="novedades-item-description">De acuerdo con Spotify Wrapped 2024, los artistas más escuchados en Colombia son: Feid, Bad Bunny, Karol G. 
+Estas figuras encabezaron la lista Top Artistas Colombia 2024, con éxitos como "Luna", "Perro Negro" y "Si Antes Te Hubiera Conocido". Otros artistas colombianos destacados son: 
+J Balvin, Maluma, Sebastián Yatra, Camilo, Manuel Turizo, Morat, Piso 21, Ferxxo, Shakira.</p>
+        </div>
+        <div class="novedades-item">
+            <h3 class="novedades-item-title">Spotify Wrapped EE.UU 2024</h3>
+            <p class="novedades-item-description">En Estados Unidos, los resultados de Spotify Wrapped 2024 fueron los siguientes:
+Artista más escuchada: Taylor Swift, por segundo año consecutivo, con más de 26 billones de reproducciones. 
+Canción más escuchada: "Espresso" de Sabrina Carpenter. 
+Audiolibros más escuchados: A Court of Thorns and Roses de Sarah J. Maas, I'm Glad My Mom Died de Jennette McCurdy, A Court of Mist and Fury de Sarah J. Maas, It Ends With Us de Colleen Hoover.</p>
+        </div>
+        <div class="novedades-item">
+            <h3 class="novedades-item-title">Mas escuchadas de Argentina</h3>
+            <p class="novedades-item-description">Las canciones más escuchadas en Spotify Argentina en 2024 fueron: 
+"HOLA PERDIDA" de Luck Ra
+"Piel" de Tiago PZK
+"LUNA" de Feid
+"QUE ME FALTE TODO" de Luck Ra
+"Una Foto Remix" de Mesita con Emilia
+"Gata Only" de FloyyMenor
+"La_Original.mp3" de Emilia con TINI
+"Perdonarte, ¿Para Qué?" de Los Ángeles Azules con Emilia Mernes
+"Tal Para Cual" de Salastkbron
+"Un Besito Más" de Salastkbron</p>
+        </div>
+        <div class="novedades-item">
+            <h3 class="novedades-item-title">Mas escuchadas de Colombia</h3>
+            <p class="novedades-item-description">Según Spotify, las canciones más escuchadas en Colombia en 2024 fueron: 
+Luna: De Feid y ATL Jacob
+Sorry 4 That Much: De Feid
+Perro Negro: De Bad Bunny y Feid
+Si Antes Te Hubiera Conocido: De Karol G
+Amargura: De Karol G
+Según Quién: De Maluma y Carin León
+Cuál Es Esa: De Feid y Pirlo
+Qlona: De Karol G y Peso Pluma
+Si Sabe Ferxxo: De Blessd y Feid
+La Diabla: De Xavi</p>
+        </div>
+        <div class="novedades-item">
+            <h3 class="novedades-item-title">Mas escuchadas de EE.UU</h3>
+            <p class="novedades-item-description">De acuerdo con el informe Spotify Wrapped 2024, las canciones más escuchadas en Estados Unidos en 2024 fueron: 
+"Espresso" de Sabrina Carpenter
+"Beautiful Things" de Benson Boone
+"BIRDS OF A FEATHER" de Billie Eilish
+"Gata Only" de FloyyMenor, Cris Mj
+"Lose Control" de Teddy Swims
+"End of Beginning" de Djo
+"Too Sweet" de Hozier
+"One Of The Girls (with JENNIE, Lily Rose Depp)" de The Weeknd
+"Cruel Summer" de Taylor Swift
+"Die With A Smile" de Bruno Mars, Lady Gaga</p>
+        </div>
+        <div class="novedades-item">
+            <h3 class="novedades-item-title">Emilia mernes</h3>
+            <p class="novedades-item-description">Emilia Mernes fue la artista más escuchada en Argentina según Spotify Wrapped, y la primera mujer en conseguirlo. La canción "La_Original.mp3", que Emilia Mernes canta junto a Tini, se ubicó en el séptimo lugar de las canciones más reproducidas del año.</p>
+        </div>
+        <div class="novedades-item">
+            <h3 class="novedades-item-title">Feid, Bad Bunny y Karol G</h3>
+            <p class="novedades-item-description">Los artistas más escuchados en Colombia en 2024 según Spotify Wrapped son Feid, Bad Bunny y Karol G. Estos artistas lideran la lista Top Artistas Colombia 2024 con éxitos como "Luna", "Perro Negro" y "Si Antes Te Hubiera Conocido". </p>
+        </div>
+        <div class="novedades-item">
+            <h3 class="novedades-item-title">Taylor Swift</h3>
+            <p class="novedades-item-description">Según Spotify Wrapped 2024, Taylor Swift fue la artista más escuchada en Estados Unidos, seguida de Drake, Zach Bryan, Morgan Wallen y Kanye West</p>
+        </div>
+        <div class="novedades-item">
+            <h3 class="novedades-item-title">Categoria mas escuchada Argentina 2024</h3>
+            <p class="novedades-item-description">En 2024, los géneros musicales más escuchados en Argentina en Spotify fueron el cuarteto, la cumbia, el RKT y el rock nacional. Sin embargo, también se destacó el crecimiento de otros géneros locales, como el techengue, que es una fusión de música urbana y electrónica.</p>
+        </div>
+        <div class="novedades-item">
+            <h3 class="novedades-item-title">Categoria mas escuchada Colombia 2024</h3>
+            <p class="novedades-item-description">Según Spotify, el reguetón fue el género musical más escuchado en Colombia en 2024: 
+Feid encabezó las listas de artistas y canciones más escuchadas con sus éxitos "Luna" y "Sorry 4 That Much".
+Karol G y Bad Bunny también se destacaron con canciones como "Perro Negro" y "Si Antes Te Hubiera Conocido".</p>
+        </div>
+        <div class="novedades-item">
+            <h3 class="novedades-item-title">Categoria mas escuchada EE.UU 2024</h3>
+            <p class="novedades-item-description">De acuerdo con Spotify, la playlist más popular en 2024 es la de Pop, y Taylor Swift es la artista más escuchada en la plataforma. 
+A nivel global, los artistas más escuchados en Spotify en 2024 fueron: 
+Taylor Swift, The Weeknd, Bad Bunny, Drake, Billie Eilish, Travis Scott, Peso Pluma, Kanye West, Ariana Grande, Feid.</p>
         </div>
     </div>
 </div>
-  <h2>______________________________________________________</h2>
+
+
+<h2>________________________________________________________________________</h2>
 
   <h2>¿Ya tienes tu eleccion?</h2>
 <div class="cta-section">
     <h2 class="cta-title">¿Preparado para usar Spottrack?</h2>
     <div class="cta-content">
         <img src="images/tu-captura.png" alt="Imagen de Spottrack en un celular" class="cta-image">
-        <a href="https://www.mediafire.com/file/w0udhu7bz99az6o/Spottrack_2.4.apk/file" class="cta-button">¡Descargar Spottrack YA!</a>
+        <a href="https://www.amazon.com/gp/product/B0DPDJ5JTP" class="cta-button">¡Descargar Spottrack YA!</a>
     </div>
 </div>
 
@@ -240,23 +568,32 @@
     </div>
         </div>
 
-        <!-- Apartado Playlist -->
-        <div id="playlist" class="apartado">
+        <!-- Apartado de estado -->
+        <div id="estado" class="apartado">
+
+<title>Estado de Servidores</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Banner principal con imagen centrada -->
+    <div class="status-banner">
+        <img src="images/server-status.png" alt="Estado de servidores" class="banner-image">
+    </div>
+
             <h2>Estado de Spottrack</h2>
-            <p>Informate de como esta spottrack como se ve su web alojada su Api Etc es cruzial estar atento a este apartado sobre todo cuando la app interna tiene fallos o no responde
+            <p>Infórmate sobre el estado de Spottrack: verifica cómo está su web alojada, su API, y otros servicios relacionados. Es crucial mantenerse atento a este apartado, especialmente cuando la aplicación interna presenta fallos o no responde.
 
           
 
 <div class="status-container">
-    <h2>Estado de Spottrack</h2>
     <ul class="status-list">
         <li>
             <span class="check-icon"></span>
-            API Music: <strong>Operativo</strong>
+            APP Global funcionando - 100%
         </li>
         <li>
             <span class="check-icon"></span>
-            Web Spottrack: <strong>Operativo</strong>
+            API Music funcionando - 99%
         </li>
     </ul>
     <div class="status-uptime">
@@ -266,6 +603,34 @@
 </div>
 
 <h2>______________________________________________________</h2>
+
+  <h2>Indicadores de estado</h2>
+<p>Te mostramos a continuacion los elementos de estado que se utilizara para indicar el estado de spottrack
+  <h2>______________________________________________________</h2>
+
+  <h2>Indicador 1</h2>
+<p>[✅] [Estado Arriba]
+Cuando los servidores se muestren con este estado, significa que todo está funcionando perfectamente y sin problemas. Los servidores están operando en óptimas condiciones.
+  <h2>______________________________________________________</h2>
+  <h2>Indicador 2</h2>
+<p>[⚠️] [Estado Crítico]
+Este estado indica que los servidores se encuentran en una situación crítica, lo que significa que pueden no estar funcionando correctamente o presentar errores en su operación.
+  <h2>______________________________________________________</h2>
+  <h2>Indicador 3</h2>
+<p>[❌] [Estado Fuera de Servicio]
+Este estado indica que el servidor no está operativo, lo que imposibilita el acceso a sus funciones y provoca numerosos errores críticos. ¡Es fundamental ponerse en contacto con nosotros de inmediato si se presenta este estado!
+  <h2>________________________________________________________</h2>
+  <h2>Indicador 4</h2>
+<p>[➖] [Estado sin datos] Cuando se muestre este estado practicamente indica que no ay datos del estado del servidor para mostrar.
+  <h2>___________________________________________________________________________________________</h2>
+  <h2>Mantenimientos</h2>
+<p>Aqui veras los mantenimientos realizados en cada servidor de spottrack incluido la web
+  <h2>________________________________________________________</h2>
+  <h2>Mantenimiento de web</h2>
+<p>Se ha realizado un mantenimiento el dia 23/12/2024 para implementar la version 3.0 de la web ¡El mantenimiento se realizo con exito!
+  <h2>________________________________________________________</h2>
+  <h2>Pronto nuevos mantenimientos</h2>
+  <h2>______________________</h2>
 
 <div class="botones-descarga">
                     <a href="https://discord.gg/gkhFs4AUn6" class="btn" download="Spottrack.apk">Reportar Problemas<P</P></a>
@@ -297,8 +662,8 @@
         </div>
 <div>
 
-        <!-- Apartado Novedades -->
-        <div id="buscar" class="apartado">
+        <!-- Apartado global -->
+        <div id="idioma" class="apartado">
             <h2>Novedades de Actualizaciones</h2>
             <p>Informate de las ultimas novedades en cada actualizacion de spottrack te contaremos todo a detalle</p>
 
@@ -307,11 +672,27 @@
       
     </div>
 
-        <!-- Apartado Ajustes -->
-        <div id="ajustes" class="apartado">
+        <!-- Apartado faq -->
+        <div id="soporte" class="apartado">
+
+
+          <h2>Soporte</h2>
+<p>¿Necesitas ayuda con algo? Estás en el lugar correcto. Aquí puedes ponerte en contacto con nosotros de manera directa. Tienes dos opciones para comunicarte:
+
+Discord: Es la forma más sencilla y rápida de resolver tus dudas.
+Correo electrónico: Si prefieres esta opción, te responderemos de inmediato.
+¡Elige el método que mejor te convenga y estaremos encantados de ayudarte!
+
+          <h2>________________________________________________________</h2>
+
+          <h2>Preguntas</h2>
+<p>¿Tienes alguna duda y quieres una respuesta rapida? baja un poco y encontraras las preguntas frecuentes (FAQ) y capas ahi encuentres la respuesta a tu duda, si no contactanos.
+          <h2>_________________________________________________________</h2>
+
+
             <h2>Preguntas Frecuentes (FAQ)</h2>
 
- <!DOCTYPE html>
+
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -358,7 +739,7 @@
 <h2>________________________________________________________
           <h2>Tutoriales y Guías</h2>
 
- <!DOCTYPE html>
+
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -375,11 +756,9 @@
 </span>
       </div>
       <div class="faq-answer">
-        Para comenzar, descarga la app desde nuestros medios oficiales: nuestra página web, redes sociales o Discord. Al hacer clic en el enlace de descarga, serás redirigido a MediaFire. Una vez allí, presiona el botón de descargar.
+        Para comenzar, descarga la app desde nuestros medios oficiales: Amazon appstore, nuestra página web, redes sociales o Discord. Al hacer clic en el enlace de descarga, serás redirigido a Amazon appstore. Una vez allí, presiona el botón de descargar.
 
-Cuando la descarga finalice, busca el archivo .apk en tu dispositivo. Por lo general, lo encontrarás en la carpeta de Descargas. Una vez localizado, toca el archivo y sigue los pasos para instalar aplicaciones APK en Android.
-
-Es posible que Android te solicite analizar la app antes de continuar. Esto ocurre porque Spottrack es un paquete de instalación que no está disponible en tiendas oficiales como Play Store, especialmente al tratarse de una aplicación webview. Si decides analizar el archivo, verás que no se detectan amenazas, ya que la app es segura siempre que la descargues desde fuentes oficiales. Si encuentras algún riesgo, probablemente hayas descargado Spottrack desde un sitio no autorizado.
+Cuando la descarga finalice, automaticamente se te abrira el .apk (Paquete de instalacion) luego le das a instalar. Es posible que Android te solicite analizar la app antes de continuar. Esto ocurre porque Spottrack es un paquete de instalación que no está disponible en la Play Store aun que la app este en amazon, especialmente al tratarse de una aplicación webview. Si decides analizar el archivo, verás que no se detectan amenazas, ya que la app es segura siempre que la descargues desde fuentes oficiales. Si encuentras algún riesgo, probablemente hayas descargado Spottrack desde un sitio no autorizado.
 
 Una vez completada la instalación y el análisis, selecciona Listo, Finalizar, o abre la app directamente. ¡Y eso es todo! Ahora estás listo para disfrutar de Spottrack.
       </div>
@@ -408,16 +787,28 @@ Una vez completada la instalación y el análisis, selecciona Listo, Finalizar, 
   <script src="script.js"></script>
 </body>
 </html>
+  <h2>_______________________________________________________________________________</h2>
 
-<div class="botones-descarga">
-                    <a href="https://discord.gg/gkhFs4AUn6" class="btn" download="Spottrack.apk">Discord<P</P></a>
-
-  </style>
+<!-- Contacto -->
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contacto</title>
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <a href="mailto:spottracksoporte@gmail.com" class="contact-text">
-    spottracksoporte@gmail.com
-  </a>
+  <div class="contact-buttons">
+    <!-- Botón de Discord -->
+    <a href="https://discord.gg/gkhFs4AUn6" target="_blank" class="btn discord-btn">
+      <span class="icon">💬</span> Discord
+    </a>
+
+    <!-- Botón de Correo -->
+    <a href="mailto:spottracksoporte@gmail.com" class="btn email-btn">
+      <span class="icon">📧</span> Correo
+    </a>
+  </div>
 </body>
 </html>
 
@@ -429,7 +820,7 @@ Una vez completada la instalación y el análisis, selecciona Listo, Finalizar, 
                     <ul>
                         <li><a href="https://patreon.com/Spottrack">Donaciones</a></li>
                         <li><a href="https://drive.google.com/file/d/1gs0kHtIAqQPvugpDWwKsQ-ZviKYt8x3L/view?usp=drive_link">Productos</a></li>
-                        <li><a href="">Suscripción</a></li>
+                        <li><a href="https://www.youtube.com/@spottrack-community">Suscripción</a></li>
                     </ul>
                 </div>
 
@@ -450,16 +841,183 @@ Una vez completada la instalación y el análisis, selecciona Listo, Finalizar, 
                 </div>
             </header>
 
-        <!-- Apartado Novedades -->
-        <div id="buscar" class="apartado">
-            <h2>Novedades de Actualizaciones</h2>
-            <p>Informate de las ultimas novedades en cada actualizacion de spottrack te contaremos todo a detalle</p>
+        <!-- Apartado blogs -->
+        <div id="blogs" class="apartado">
+            <h2>Bienvenido/a alos blogs de spottrack</h2>
+            <p>Explora nuestros artículos y descubre consejos, noticias y guías diseñadas para ayudarte a sacar el máximo provecho de Spottrack. Desde actualizaciones hasta trucos útiles, nuestro blog tiene todo lo que necesitas saber.</p>
+          <h2>_____________________________________________________________________________________</h2>
+
+<div class="blog-section">
+  <div class="blog-container">
+    <!-- Blog 1 -->
+    <div class="blog-card" id="blog-1">
+      <img src="images/imagen1.jpg" alt="Imagen del Blog 1" class="blog-image" />
+      <h3 class="blog-title">Sitios falsos</h3> 
+      <p class="blog-description">En internet existen numerosos sitios web falsificados que pueden confundir a los usuarios, poniendo en riesgo su privacidad y seguridad. Estos sitios fraudulentos suelen ser utilizados para almacenar información falsa, distribuir archivos maliciosos o incluso robar datos personales. Es crucial aprender a identificar el sitio oficial de Spottrack para evitar caer en estos engaños.</p>
+      <button class="btn-read-more" onclick="showBlog('blog-1')">Leer más</button>
+    </div>
+    <!-- Blog 2 -->
+    <div class="blog-card" id="blog-2">
+      <img src="images/imagen2.jpg" alt="Imagen del Blog 2" class="blog-image" />
+      <h3 class="blog-title">Actualizacion de politicas</h3>
+      <p class="blog-description">A continuacion te contamos un breve resumen de lo que se ha actualizado recomendamos ir al apartado de politicas y privacidad y leer todo completo ya que es importante que tu como usuario leas nuestras politicas de privacidad y te contamos que hacemos con los datos ¡cualquier otra duda puedes contactarnos por discord y correo!<p>
+      <button class="btn-read-more" onclick="showBlog('blog-2')">Leer más</button>
+    </div>
+    <!-- Blog 3 -->
+    <div class="blog-card" id="blog-3">
+      <img src="images/imagen3.jpg" alt="Imagen del Blog 3" class="blog-image" />
+      <h3 class="blog-title">Optimizacion de spottrack</h3>
+      <p class="blog-description">Spottrack se ha destacado no solo por su funcionalidad, sino también por su impresionante optimización, ofreciendo una experiencia musical fluida y rápida para todos sus usuarios. Desde su integración con la API de YouTube hasta su conversión de web a app, Spottrack ha sido diseñada para ser accesible y eficiente, incluso para aquellos con dispositivos de hardware más modestos. A continuación, exploramos cómo Spottrack ha logrado optimizar su rendimiento en todos los aspectos...</p>
+      <button class="btn-read-more" onclick="showBlog('blog-3')">Leer más</button>
+    </div>
+    <!-- Blog 4 -->
+    <div class="blog-card" id="blog-4">
+      <img src="images/imagen4.jpg" alt="Imagen del Blog 4" class="blog-image" />
+      <h3 class="blog-title">Actualizacion de la web</h3>
+      <p class="blog-description">¡Estamos emocionados de anunciar el lanzamiento de la versión 3.0 de nuestro sitio web oficial de Spottrack! Esta es la actualización más grande hasta ahora, diseñada para mejorar la experiencia de nuestros usuarios de manera significativa. Hemos trabajado arduamente para ofrecer un sitio web más rápido, más intuitivo y con muchas nuevas funciones que mejorarán tanto la experiencia del usuario como la visibilidad de Spottrack en línea. A continuación, te contamos todo lo que incluye esta increíble actualización.</p>
+      <button class="btn-read-more" onclick="showBlog('blog-4')">Leer más</button>
+    </div>
+    <!-- Blog 5 -->
+    <div class="blog-card" id="blog-5">
+      <img src="images/imagen5.jpg" alt="Imagen del Blog 5" class="blog-image" />
+      <h3 class="blog-title">Actualizacion 3.0 app</h3>
+      <p class="blog-description">¡La actualización 3.0 de Spottrack ya está disponible y estamos emocionados de compartir todas las mejoras que hemos implementado! Esta nueva versión es el resultado de dos semanas de trabajo continuo, y gracias al esfuerzo dedicado de nuestro equipo, hemos logrado realizar cambios significativos que mejorarán tu experiencia de usuario. A continuación, te contamos todo lo que trae esta actualización.</p>
+      <button class="btn-read-more" onclick="showBlog('blog-5')">Leer más</button>
+    </div>
+    <!-- Blog 6 -->
+    <div class="blog-card" id="blog-6">
+      <img src="images/imagen6.jpg" alt="Imagen del Blog 6" class="blog-image" />
+      <h3 class="blog-title">Spottrack en amazon appstore</h3>
+      <p class="blog-description">¡Grandes noticias! Spottrack ya está disponible en la tienda oficial de Amazon Appstore, lo que marca un hito importante en nuestra expansión y en el acceso a más usuarios. Esta nueva presencia en una de las plataformas más populares de aplicaciones abre un mundo de oportunidades para la app y sus usuarios. ¿Qué significa esto para Spottrack y para ti? Aquí te contamos todo lo que implica esta nueva etapa.</p>
+      <button class="btn-read-more" onclick="showBlog('blog-6')">Leer más</button>
+    </div>
+  </div>
+
+  <!-- Contenido detallado del blog -->
+  <div class="blog-detail">
+    <div id="blog-content"></div>
+    <button class="btn-back" onclick="showAllBlogs()">Volver</button>
+  </div>
+</div>
+
+<!-- Vinculación del archivo CSS -->
+  <link rel="stylesheet" href="styles.css">
+
+  <!-- Vinculación del archivo JS -->
+  <script src="script.js" defer></script>
+
+<footer id="informacion">
+
+                <div class="formas-apoyo">
+                    <h3>_________________________________________________________________________________________________________________</h3>
+                    <ul>
+                        <li><a href="https://patreon.com/Spottrack">Donaciones</a></li>
+                        <li><a href="https://drive.google.com/file/d/1gs0kHtIAqQPvugpDWwKsQ-ZviKYt8x3L/view?usp=drive_link">Productos</a></li>
+                        <li><a href="https://www.youtube.com/@spottrack-community">Suscripción</a></li>
+                    </ul>
+                </div>
+
+                <div class="redes-sociales">
+                    <ul>
+                        <li><a href="https://x.com/Nata07Gamer" target="_blank">Twitter</a></li>
+                        <li><a href="https://youtube.com/@spottrack-community?si=hMeLyxaLURFkoJs-" target="_blank">YouTube</a></li>
+                    </ul>
+                </div>
+            </footer>
+
+            <!-- Estado de operación y desarrolladores -->
+            <div class="estado-operacion">
+                <i class="fas fa-check-circle"></i> | App in operation
+            </div>
+            <div class="developers">© Developers NXS 2024</div>
+        </div>
+                </div>
+            </header>
 
         </div>
         </div>
     </div>
        
+<!-- Apartado idioma y ajustes --> 
+        <div id="ajustes" class="apartado"> 
+            <h2>Ajustes web</h2>
+            <p>Bienvenido/a al apartado de configuraciones de la web de spottrack aqui no ay nada por configurar solo puedes ver que la pagina se traducira automaticamente segun tu idioma esto es perfecto para los usuarios de idioma ingles. proximamente agregaremos un sistema de cuentas personalizacion de cuentas administracion de cuentas y mucho mas!</p>
+          <h2>________________________________________________</h2>
 
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Traducción Automática</title>
+    <style>
+        /* Ocultar barra de Google Translate */
+        .goog-te-banner-frame {
+            display: none !important;
+            visibility: hidden !important;
+        }
+
+        body {
+            top: 0px !important;
+        }
+
+        #google_translate_element {
+            display: none; /* Oculta el selector de idiomas si no lo necesitas */
+        }
+    </style>
+</head>
+<body>
+    <h1>Idioma</h1>
+    <p>La web de spottrack traducira automaticamente la pagina con la funcion de gooble translate que detectara tu idioma que tiene el navegador😉</p>
+
+<p>Los idiomas soportados son: Español, ingles, frances, aleman,
+
+  <h2>___________________________________________________</h2>
+
+    <div id="google_translate_element"></div>
+    <script type="text/javascript">
+        function googleTranslateElementInit() {
+            new google.translate.TranslateElement({
+                pageLanguage: 'es', // Idioma original de la página
+                autoDisplay: true, // Traducción automática basada en el idioma del navegador
+            }, 'google_translate_element');
+        }
+    </script>
+    <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+</body>
+</html>
+
+<footer id="informacion">
+
+<div class="formas-apoyo">
+                    <h3>_________________________________________________________________________________________________________________</h3>
+                    <ul>
+                        <li><a href="https://patreon.com/Spottrack">Donaciones</a></li>
+                        <li><a href="https://drive.google.com/file/d/1gs0kHtIAqQPvugpDWwKsQ-ZviKYt8x3L/view?usp=drive_link">Productos</a></li>
+                        <li><a href="https://www.youtube.com/@spottrack-community">Suscripción</a></li>
+                    </ul>
+                </div>
+
+                <div class="redes-sociales">
+                    <ul>
+                        <li><a href="https://x.com/Nata07Gamer" target="_blank">Twitter</a></li>
+                        <li><a href="https://www.youtube.com/@spottrack-community" target="_blank">YouTube</a></li>
+                    </ul>
+                </div>
+            </footer>
+
+            <!-- Estado de operación y desarrolladores -->
+            <div class="estado-operacion">
+                <i class="fas fa-check-circle"></i> | App in operation
+            </div>
+            <div class="developers">© Developers NXS 2024</div>
+        </div>
+</div>
+            </header>
+        </div>
+        </div>
+    </div>
+       
     <script>
         // Función para mostrar solo el apartado seleccionado
         function showSection(sectionId) {
@@ -479,7 +1037,8 @@ Una vez completada la instalación y el análisis, selecciona Listo, Finalizar, 
     </script>
 </body>
 </html>
-<!DOCTYPE html>
+
+
 <html lang="es">
 <head>
   <meta charset="UTF-8">
@@ -503,26 +1062,38 @@ Una vez completada la instalación y el análisis, selecciona Listo, Finalizar, 
 </body>
 </html>
 
-<!-- Apartado Legal --><div id="Politicas y privacidad" class="apartado"><h2>Politicas y privacidad</h2><p>Spottrack se compromete a proteger tu privacidad. Esta política explica cómo recopilamos, utilizamos y protegemos los datos en nuestra aplicación. Al usar Spottrack, aceptas los términos de esta política.
-<p>Fecha de última actualización: [ 17/11/2024 ]
+<!-- Apartado Legal --><div id="legal" class="apartado"><h2>Politicas y privacidad</h2><p>Spottrack se compromete a proteger tu privacidad. Esta política explica cómo recopilamos, utilizamos y protegemos los datos en nuestra aplicación. Al usar Spottrack, aceptas los términos de esta política.
+<p>Fecha de última actualización: [ 23/12/2024 ]
 
 
 
   <h2>___________________________________________________</h2>
 
   <h2>1. Datos que recopilamos</h2>
-<p>Spottrack no requiere la creación de una cuenta ni recopila información personal sensible. Los únicos datos que se pueden proporcionar son los siguientes:
+<p>Sin necesidad de cuenta: Spottrack no requiere la creación de una cuenta, ni recopilamos información personal sensible en ningún momento los unicos datos que se propocionan son :
 
-<p>1) Nombre de usuario personalizado: Puedes establecer un nombre para identificarte en la app, que no está vinculado a ninguna cuenta.
 
-<p>2) Foto de perfil: Puedes elegir una imagen para personalizar tu experiencia. Esta imagen se almacena localmente en tu dispositivo y no se comparte con terceros.
 
-<p>No recopilamos ni almacenamos estos datos en servidores externos; toda la información permanece en tu dispositivo.
+<p>1) Nombre de usuario personalizado: Puedes establecer un nombre único para identificarte dentro de la app. Este nombre no está vinculado a ninguna cuenta ni a información personal externa.
 
+<p>2) Foto de perfil: Tienes la opción de seleccionar una imagen para personalizar tu experiencia en Spottrack.
+
+<p>Tanto el nombre de usuario como la foto de perfil se almacenan exclusivamente en el localStorage del navegador. Esto significa que tus datos permanecen en tu dispositivo y no se envían ni almacenan en servidores externos.
+Spottrack no comparte ni utiliza estos datos con fines comerciales ni los transfiere a terceros.
+
+<p>Además de la información mencionada, Spottrack también almacena configuraciones relacionadas con tus preferencias (como ajustes específicos de la aplicación) en el localStorage del navegador para mejorar tu experiencia.
+Este almacenamiento local garantiza que puedas disfrutar de una experiencia personalizada sin comprometer tu privacidad.
   <h2>____________________________________________________</h2>
 
   <h2>2. Uso de los datos</h2>
-<p>Los datos proporcionados por el usuario (nombre y foto de perfil) se utilizan únicamente para personalizar la experiencia dentro de Spottrack. No se comparten, venden ni transfieren a terceros.
+<p>Los datos proporcionados por el usuario, como el nombre de usuario personalizado, la foto de perfil y las configuraciones personales, se utilizan exclusivamente para los siguientes propósitos:
+
+<p>El nombre de usuario y la foto de perfil permiten personalizar tu experiencia dentro de Spottrack, brindándote una interacción más amigable y adaptada a tus preferencias.
+
+<p>Las preferencias y ajustes (como configuraciones específicas de la app) también se almacenan localmente en tu dispositivo o LocalStorage para ofrecerte una experiencia fluida y consistente.
+
+<p>Todos estos datos se almacenan únicamente en el localStorage del navegador o en tu dispositivo, según corresponda.
+No se comparten, venden, transfieren ni procesan en servidores externos o con terceros.
 
   <h2>_____________________________________________________</h2>
 
@@ -534,7 +1105,19 @@ Una vez completada la instalación y el análisis, selecciona Listo, Finalizar, 
   <h2>_____________________________________________________</h2>
 
   <h2>4. Seguridad</h2>
-<p>Los datos almacenados localmente en tu dispositivo están protegidos por las medidas de seguridad predeterminadas de tu sistema operativo. Recomendamos mantener tu dispositivo protegido con contraseñas, patrones o biometría.
+<p>Los datos almacenados en el localStorage del navegador están protegidos por las medidas de seguridad predeterminadas de tu dispositivo y navegador. Esto significa que:
+
+<p>Solo tú, como usuario del dispositivo, puedes acceder a los datos almacenados en el localStorage.
+
+<p>Los datos dependen de la seguridad de tu sistema operativo y navegador, que incluyen protecciones contra accesos no autorizados.
+
+<p>Recomendaciones adicionales:
+
+<p>Protege tu dispositivo: Asegúrate de utilizar contraseñas seguras, patrones o autenticación biométrica para limitar el acceso a tu dispositivo.
+
+<p>Mantén tu navegador actualizado: Actualiza regularmente tu navegador para garantizar que se apliquen los últimos parches de seguridad.
+
+<p>Evita el uso de dispositivos compartidos: Si accedes a Spottrack en dispositivos públicos o compartidos, cierra tu sesión o elimina datos del navegador después de usarlos.
 
   <h2>_____________________________________________________</h2>
 
@@ -557,14 +1140,14 @@ Una vez completada la instalación y el análisis, selecciona Listo, Finalizar, 
                     <ul>
                         <li><a href="https://patreon.com/Spottrack">Donaciones</a></li>
                         <li><a href="https://drive.google.com/file/d/1gs0kHtIAqQPvugpDWwKsQ-ZviKYt8x3L/view?usp=drive_link">Productos</a></li>
-                        <li><a href="https://www.youtube.com/@NAT.T07">Suscripción</a></li>
+                        <li><a href="https://www.youtube.com/@spottrack-community">Suscripción</a></li>
                     </ul>
                 </div>
 
                 <div class="redes-sociales">
                     <ul>
                         <li><a href="https://x.com/Nata07Gamer" target="_blank">Twitter</a></li>
-                        <li><a href="https://www.youtube.com/@NAT.T07" target="_blank">YouTube</a></li>
+                        <li><a href="https://www.youtube.com/@spottrack-community" target="_blank">YouTube</a></li>
                     </ul>
                 </div>
             </footer>
