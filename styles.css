@@ -1,3 +1,80 @@
+/* Estilos generales (para móviles y tabletas) */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+.container {
+    max-width: 100%;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+header {
+    background: #333;
+    color: white;
+    padding: 10px;
+    text-align: center;
+}
+
+nav {
+    background: #444;
+    padding: 10px;
+    text-align: center;
+}
+
+nav a {
+    color: white;
+    padding: 10px;
+    text-decoration: none;
+}
+
+nav a:hover {
+    background-color: #555;
+}
+
+section {
+    margin: 20px 0;
+}
+
+footer {
+    background: #333;
+    color: white;
+    padding: 10px;
+    text-align: center;
+}
+
+/* Estilos para pantallas pequeñas (hasta 768px) - Móviles y Tabletas */
+@media (max-width: 768px) {
+    body {
+        font-size: 12px;
+    }
+
+    header, footer {
+        font-size: 14px;
+    }
+
+    nav {
+        text-align: left;
+    }
+
+    .container {
+        width: 95%;
+    }
+
+    nav a {
+        padding: 8px;
+    }
+
+    section {
+        font-size: 14px;
+    }
+}
+
+
 /* Importamos Google Fonts */
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
 
