@@ -428,3 +428,6 @@ function getFullDescription(blogId) {
   };
   return descriptions[blogId] || '';
 }
+
+(adsbygoogle = window.adsbygoogle || []).push({});
+
