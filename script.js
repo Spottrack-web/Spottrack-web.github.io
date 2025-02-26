@@ -139,20 +139,20 @@ document.addEventListener("DOMContentLoaded", () => {
 
         if (type === "spottrack") {
             events = [
+              { 
+                title: "Sorteo Spottrack Premium", 
+                img: "images/event1.jpg", 
+                description: "🎉¡Este mes y el siguiente estaremos sorteando Spottrack Premium en nuestro servidor de Discord! 🎉 Habrá 3 ganadores, y los resultados se anunciarán el 28 de febrero. ¡No pierdas la oportunidad de ser uno de los afortunados! 🍀 ¡Suerte a todos! 😎✨"
+            },
                 { 
-                    title: "No ay evento", 
-                    img: "images/event1.jpg", 
-                    description: "No ay eventos disponibles en este contenedor, espere hasta que haya nuevos eventos disponibles"
-                },
-                { 
-                    title: "No ay evento", 
+                    title: "Sin evento", 
                     img: "images/event2.jpg", 
-                    description: "No ay eventos disponibles en este contenedor, espere hasta que haya nuevos eventos disponibles"
+                    description: "El ultimo evento finalizo el 9/12/2024 ¡Pronto nuevos eventos!"
                 },
                 { 
-                    title: "Videos exclusivos", 
+                    title: "Sin evento", 
                     img: "images/event3.jpg", 
-                    description: "¡¡¡Estos meses muy probable tendremos videos en nuestro canal oficial de youtube donde explicaremos algunas funciones y te contaremos todas las novedades de cada actualizacion junto con otras cosas importantes para la comunidad💪!!!"
+                    description: "El ultimo evento finalizo el 22/02/2025 ¡Pronto nuevos eventos!"
                 }
             ];
         } else if (type === "artistas") {
