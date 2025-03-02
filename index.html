@@ -1642,7 +1642,8 @@ No dudes en escribirnos si necesitas ayuda. Estamos aquí para resolver cualquie
         <input type="email" id="email" placeholder="Correo electrónico" />
         <input type="password" id="password" placeholder="Contraseña" />
         <!-- reCAPTCHA para Registro -->
-<div class="g-recaptcha" data-sitekey="6LfVo-EqAAAAAKnO-lj24zrEW9N7f0pwokBrMQYf" id="recaptchaRegistro"></div>
+        <div id="recaptchaRegistro"></div>
+<div class="g-recaptcha" data-sitekey="6LfVo-EqAAAAAKnO-lj24zrEW9N7f0pwokBrMQYf"></div>
 <script src="https://www.google.com/recaptcha/api.js" async defer></script>
 
         <button id="registrarBtn">Registrarse</button>
@@ -1656,7 +1657,8 @@ No dudes en escribirnos si necesitas ayuda. Estamos aquí para resolver cualquie
         <input type="email" id="login-email" placeholder="Correo electrónico" />
         <input type="password" id="login-password" placeholder="Contraseña" />
         <!-- reCAPTCHA para Inicio de Sesión -->
-<div class="g-recaptcha" data-sitekey="6LfVo-EqAAAAAKnO-lj24zrEW9N7f0pwokBrMQYf" id="recaptchalogin"></div>
+        <div id="recaptchaLogin"></div>
+<div class="g-recaptcha" data-sitekey="6LfVo-EqAAAAAKnO-lj24zrEW9N7f0pwokBrMQYf"></div>
 <script src="https://www.google.com/recaptcha/api.js" async defer></script>
 
 <style>/* Estilo específico para el reCAPTCHA */     
@@ -1731,15 +1733,24 @@ No dudes en escribirnos si necesitas ayuda. Estamos aquí para resolver cualquie
             document.getElementById("perfil-container").style.display = "none";
             document.getElementById(panel).style.display = "block";
         }
+        let recaptchaLoginId, recaptchaRegistroId;
 
-        document.getElementById("registrarBtn").addEventListener("click", () => {
+function onLoadRecaptcha() {
+    recaptchaLoginId = grecaptcha.render("recaptchaLogin", {
+        sitekey: "6LfVo-EqAAAAAKnO-lj24zrEW9N7f0pwokBrMQYf"
+    });
+
+    recaptchaRegistroId = grecaptcha.render("recaptchaRegistro", {
+        sitekey: "6LfVo-EqAAAAAKnO-lj24zrEW9N7f0pwokBrMQYf"
+    });
+}
+
+document.getElementById("registrarBtn").addEventListener("click", () => {
     const nombre = document.getElementById("nombre").value;
     const email = document.getElementById("email").value;
     const password = document.getElementById("password").value;
     const mensajeRegistro = document.getElementById("mensajeRegistro");
-    const recaptchaResponse = grecaptcha.getResponse(
-        document.getElementById("recaptchaRegistro").dataset.widgetId
-    );
+    const recaptchaResponse = grecaptcha.getResponse(recaptchaRegistroId);
 
     if (!nombre || !email || !password) {
         mensajeRegistro.innerText = "Completa todos los campos.";
@@ -1775,9 +1786,7 @@ No dudes en escribirnos si necesitas ayuda. Estamos aquí para resolver cualquie
     const email = document.getElementById("login-email").value;
     const password = document.getElementById("login-password").value;
     const mensajeLogin = document.getElementById("mensajeLogin");
-    const recaptchaResponse = grecaptcha.getResponse(
-        document.getElementById("recaptchaLogin").dataset.widgetId
-    );
+    const recaptchaResponse = grecaptcha.getResponse(recaptchaLoginId);
 
     if (!email || !password) {
         mensajeLogin.innerText = "Completa todos los campos.";
@@ -1793,7 +1802,6 @@ No dudes en escribirnos si necesitas ayuda. Estamos aquí para resolver cualquie
 
     mensajeLogin.innerText = "Iniciando sesión...";
     mensajeLogin.style.color = "blue";
-
 
 
 
