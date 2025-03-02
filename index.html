@@ -1642,7 +1642,7 @@ No dudes en escribirnos si necesitas ayuda. Estamos aquí para resolver cualquie
         <input type="email" id="email" placeholder="Correo electrónico" />
         <input type="password" id="password" placeholder="Contraseña" />
         <!-- reCAPTCHA para Registro -->
-<div class="g-recaptcha" data-sitekey="6LfVo-EqAAAAAKnO-lj24zrEW9N7f0pwokBrMQYf" id="recaptcha-registro"></div>
+<div class="g-recaptcha" data-sitekey="6LfVo-EqAAAAAKnO-lj24zrEW9N7f0pwokBrMQYf" id="recaptchaRegistro"></div>
 <script src="https://www.google.com/recaptcha/api.js" async defer></script>
 
         <button id="registrarBtn">Registrarse</button>
@@ -1656,7 +1656,7 @@ No dudes en escribirnos si necesitas ayuda. Estamos aquí para resolver cualquie
         <input type="email" id="login-email" placeholder="Correo electrónico" />
         <input type="password" id="login-password" placeholder="Contraseña" />
         <!-- reCAPTCHA para Inicio de Sesión -->
-<div class="g-recaptcha" data-sitekey="6LfVo-EqAAAAAKnO-lj24zrEW9N7f0pwokBrMQYf" id="recaptcha-login"></div>
+<div class="g-recaptcha" data-sitekey="6LfVo-EqAAAAAKnO-lj24zrEW9N7f0pwokBrMQYf" id="recaptchalogin"></div>
 <script src="https://www.google.com/recaptcha/api.js" async defer></script>
 
 <style>/* Estilo específico para el reCAPTCHA */     
@@ -1738,8 +1738,8 @@ No dudes en escribirnos si necesitas ayuda. Estamos aquí para resolver cualquie
     const password = document.getElementById("password").value;
     const mensajeRegistro = document.getElementById("mensajeRegistro");
     const recaptchaResponse = grecaptcha.getResponse(
-        document.querySelector("#recaptcha-registro").dataset.widgetId
-    ); // Obtiene el reCAPTCHA del formulario de registro
+        document.getElementById("recaptchaRegistro").dataset.widgetId
+    );
 
     if (!nombre || !email || !password) {
         mensajeRegistro.innerText = "Completa todos los campos.";
@@ -1776,8 +1776,8 @@ No dudes en escribirnos si necesitas ayuda. Estamos aquí para resolver cualquie
     const password = document.getElementById("login-password").value;
     const mensajeLogin = document.getElementById("mensajeLogin");
     const recaptchaResponse = grecaptcha.getResponse(
-        document.querySelector("#recaptcha-login").dataset.widgetId
-    ); // Obtiene el reCAPTCHA del formulario de inicio de sesión
+        document.getElementById("recaptchaLogin").dataset.widgetId
+    );
 
     if (!email || !password) {
         mensajeLogin.innerText = "Completa todos los campos.";
@@ -1793,6 +1793,7 @@ No dudes en escribirnos si necesitas ayuda. Estamos aquí para resolver cualquie
 
     mensajeLogin.innerText = "Iniciando sesión...";
     mensajeLogin.style.color = "blue";
+
 
 
 
