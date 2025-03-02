@@ -1735,22 +1735,26 @@ No dudes en escribirnos si necesitas ayuda. Estamos aquí para resolver cualquie
         }
         let recaptchaLoginId, recaptchaRegistroId;
 
+// Cargar los reCAPTCHAs para ambos formularios
 function onLoadRecaptcha() {
-    recaptchaLoginId = grecaptcha.render("recaptchaLogin", {
+    // Renderizamos el reCAPTCHA para el formulario de Registro
+    recaptchaRegistroId = grecaptcha.render("recaptchaRegistro", {
         sitekey: "6LfVo-EqAAAAAKnO-lj24zrEW9N7f0pwokBrMQYf"
     });
 
-    recaptchaRegistroId = grecaptcha.render("recaptchaRegistro", {
+    // Renderizamos el reCAPTCHA para el formulario de Inicio de Sesión
+    recaptchaLoginId = grecaptcha.render("recaptchaLogin", {
         sitekey: "6LfVo-EqAAAAAKnO-lj24zrEW9N7f0pwokBrMQYf"
     });
 }
 
+// Función para manejar el registro
 document.getElementById("registrarBtn").addEventListener("click", () => {
     const nombre = document.getElementById("nombre").value;
     const email = document.getElementById("email").value;
     const password = document.getElementById("password").value;
     const mensajeRegistro = document.getElementById("mensajeRegistro");
-    const recaptchaResponse = grecaptcha.getResponse(recaptchaRegistroId);
+    const recaptchaResponseRegistro = grecaptcha.getResponse(recaptchaRegistroId);
 
     if (!nombre || !email || !password) {
         mensajeRegistro.innerText = "Completa todos los campos.";
@@ -1758,7 +1762,7 @@ document.getElementById("registrarBtn").addEventListener("click", () => {
         return;
     }
 
-    if (!recaptchaResponse) {
+    if (!recaptchaResponseRegistro) {
         mensajeRegistro.innerText = "Por favor, completa el reCAPTCHA.";
         mensajeRegistro.style.color = "red";
         return;
@@ -1766,7 +1770,6 @@ document.getElementById("registrarBtn").addEventListener("click", () => {
 
     mensajeRegistro.innerText = "Registrando...";
     mensajeRegistro.style.color = "blue";
-
 
             createUserWithEmailAndPassword(auth, email, password)
                 .then(async (userCredential) => {
@@ -1782,11 +1785,12 @@ document.getElementById("registrarBtn").addEventListener("click", () => {
                 });
         });
 
-        document.getElementById("loginBtn").addEventListener("click", () => {
+        // Función para manejar el inicio de sesión
+document.getElementById("loginBtn").addEventListener("click", () => {
     const email = document.getElementById("login-email").value;
     const password = document.getElementById("login-password").value;
     const mensajeLogin = document.getElementById("mensajeLogin");
-    const recaptchaResponse = grecaptcha.getResponse(recaptchaLoginId);
+    const recaptchaResponseLogin = grecaptcha.getResponse(recaptchaLoginId);
 
     if (!email || !password) {
         mensajeLogin.innerText = "Completa todos los campos.";
@@ -1794,7 +1798,7 @@ document.getElementById("registrarBtn").addEventListener("click", () => {
         return;
     }
 
-    if (!recaptchaResponse) {
+    if (!recaptchaResponseLogin) {
         mensajeLogin.innerText = "Por favor, completa el reCAPTCHA.";
         mensajeLogin.style.color = "red";
         return;
@@ -1803,6 +1807,8 @@ document.getElementById("registrarBtn").addEventListener("click", () => {
     mensajeLogin.innerText = "Iniciando sesión...";
     mensajeLogin.style.color = "blue";
 
+// Llamar a onLoadRecaptcha cuando la página cargue
+window.onload = onLoadRecaptcha;
 
 
 
