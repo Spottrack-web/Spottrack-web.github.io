@@ -1635,28 +1635,29 @@ No dudes en escribirnos si necesitas ayuda. Estamos aquí para resolver cualquie
     <link rel="stylesheet" href="firebase.css">
 </head>
 <body>
-    <!-- Panel de Registro -->
-    <div class="container" id="registro-container">
-        <h2>Registrarse en Spottrack</h2>
-        <input type="text" id="nombre" placeholder="Nombre completo" />
-        <input type="email" id="email" placeholder="Correo electrónico" />
-        <input type="password" id="password" placeholder="Contraseña" />
-        <!-- reCAPTCHA para Registro -->
-        <div id="recaptchaRegistro"></div>
+
+  <!-- Panel de Registro -->
+  <div class="container" id="registro-container">
+    <h2>Registrarse en Spottrack</h2>
+    <input type="text" id="nombre" placeholder="Nombre completo" />
+    <input type="email" id="email" placeholder="Correo electrónico" />
+    <input type="password" id="password" placeholder="Contraseña" />
+    <!-- reCAPTCHA para Registro -->
+    <div id="recaptchaRegistro"></div>
 <div class="g-recaptcha" data-sitekey="6Lec4uYqAAAAACSbSquF2kkGX1NgfSuDTQ8og4EQ"></div>
 
-        <button id="registrarBtn">Registrarse</button>
-        <p class="mensaje" id="mensajeRegistro"></p>
-        <p><a href="#" id="mostrar-login">¿Tienes una cuenta? Inicia sesión ya</a></p>
-    </div>
+    <button id="registrarBtn">Registrarse</button>
+    <p class="mensaje" id="mensajeRegistro"></p>
+    <p><a href="#" id="mostrar-login">¿Tienes una cuenta? Inicia sesión ya</a></p>
+</div>
 
-    <!-- Panel de Inicio de Sesión -->
-    <div class="container" id="login-container" style="display: none;">
-        <h2>Iniciar Sesión</h2>
-        <input type="email" id="login-email" placeholder="Correo electrónico" />
-        <input type="password" id="login-password" placeholder="Contraseña" />
-        <!-- reCAPTCHA para Inicio de Sesión -->
-        <div id="recaptchaLogin"></div>
+<!-- Panel de Inicio de Sesión -->
+<div class="container" id="login-container" style="display: none;">
+    <h2>Iniciar Sesión</h2>
+    <input type="email" id="login-email" placeholder="Correo electrónico" />
+    <input type="password" id="login-password" placeholder="Contraseña" />
+    <!-- reCAPTCHA para Inicio de Sesión -->
+    <div id="recaptchaLogin"></div>
 <div class="g-recaptcha" data-sitekey="6LfVo-EqAAAAAKnO-lj24zrEW9N7f0pwokBrMQYf"></div>
 <script src="https://www.google.com/recaptcha/api.js" async defer></script>
 
@@ -1732,20 +1733,6 @@ No dudes en escribirnos si necesitas ayuda. Estamos aquí para resolver cualquie
             document.getElementById("perfil-container").style.display = "none";
             document.getElementById(panel).style.display = "block";
         }
-        let recaptchaLoginId, recaptchaRegistroId;
-
-// Cargar los reCAPTCHAs para ambos formularios
-function onLoadRecaptcha() {
-    // Renderizamos el reCAPTCHA para el formulario de Registro
-    recaptchaRegistroId = grecaptcha.render("recaptchaRegistro", {
-        sitekey: "6Lec4uYqAAAAACSbSquF2kkGX1NgfSuDTQ8og4EQ"
-    });
-
-    // Renderizamos el reCAPTCHA para el formulario de Inicio de Sesión
-    recaptchaLoginId = grecaptcha.render("recaptchaLogin", {
-        sitekey: "6LfVo-EqAAAAAKnO-lj24zrEW9N7f0pwokBrMQYf"
-    });
-}
 
 // Función para manejar el registro
 document.getElementById("registrarBtn").addEventListener("click", () => {
@@ -1769,6 +1756,12 @@ document.getElementById("registrarBtn").addEventListener("click", () => {
 
     mensajeRegistro.innerText = "Registrando...";
     mensajeRegistro.style.color = "blue";
+
+// Resetea el reCAPTCHA al cambiar al formulario de inicio de sesión
+document.getElementById("mostrar-login").addEventListener("click", () => {
+    grecaptcha.reset(recaptchaRegistroId); // Resetea el reCAPTCHA de registro
+    mostrarPanel("login-container"); // Muestra el formulario de inicio de sesión
+});
 
             createUserWithEmailAndPassword(auth, email, password)
                 .then(async (userCredential) => {
@@ -1805,6 +1798,12 @@ document.getElementById("loginBtn").addEventListener("click", () => {
 
     mensajeLogin.innerText = "Iniciando sesión...";
     mensajeLogin.style.color = "blue";
+
+// Resetea el reCAPTCHA al cambiar al formulario de registro
+document.getElementById("mostrar-registro").addEventListener("click", () => {
+    grecaptcha.reset(recaptchaLoginId); // Resetea el reCAPTCHA de inicio de sesión
+    mostrarPanel("registro-container"); // Muestra el formulario de registro
+});
 
 // Llamar a onLoadRecaptcha cuando la página cargue
 window.onload = onLoadRecaptcha;
