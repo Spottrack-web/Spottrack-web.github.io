@@ -1637,29 +1637,29 @@ No dudes en escribirnos si necesitas ayuda. Estamos aquí para resolver cualquie
 <body>
 
   <!-- Panel de Registro -->
-  <div class="container" id="registro-container">
-    <h2>Registrarse en Spottrack</h2>
-    <input type="text" id="nombre" placeholder="Nombre completo" />
-    <input type="email" id="email" placeholder="Correo electrónico" />
-    <input type="password" id="password" placeholder="Contraseña" />
-    <!-- reCAPTCHA para Registro -->
-    <div id="recaptchaRegistro"></div>
-<div class="g-recaptcha" data-sitekey="6Lec4uYqAAAAACSbSquF2kkGX1NgfSuDTQ8og4EQ"></div>
-
-    <button id="registrarBtn">Registrarse</button>
-    <p class="mensaje" id="mensajeRegistro"></p>
-    <p><a href="#" id="mostrar-login">¿Tienes una cuenta? Inicia sesión ya</a></p>
+<div class="container" id="registro-container">
+  <h2>Registrarse en Spottrack</h2>
+  <input type="text" id="nombre" placeholder="Nombre completo" />
+  <input type="email" id="email" placeholder="Correo electrónico" />
+  <input type="password" id="password" placeholder="Contraseña" />
+  <!-- reCAPTCHA para Registro -->
+   <div id="recaptchaRegistro"></div>
+   <!-- reCAPTCHA en el formulario de Registro -->
+<div class="g-recaptcha" data-sitekey="6LfVo-EqAAAAAKnO-lj24zrEW9N7f0pwokBrMQYf"></div>
+<button id="registrarBtn">Registrarse</button>
+<p class="mensaje" id="mensajeRegistro"></p>
+<p><a href="#" id="mostrar-login">¿Tienes una cuenta? Inicia sesión ya</a></p>
 </div>
+
+<!-- Script de reCAPTCHA -->
+<script src="https://www.google.com/recaptcha/api.js" async defer></script>
+
 
 <!-- Panel de Inicio de Sesión -->
 <div class="container" id="login-container" style="display: none;">
     <h2>Iniciar Sesión</h2>
     <input type="email" id="login-email" placeholder="Correo electrónico" />
     <input type="password" id="login-password" placeholder="Contraseña" />
-    <!-- reCAPTCHA para Inicio de Sesión -->
-    <div id="recaptchaLogin"></div>
-<div class="g-recaptcha" data-sitekey="6LfVo-EqAAAAAKnO-lj24zrEW9N7f0pwokBrMQYf"></div>
-<script src="https://www.google.com/recaptcha/api.js" async defer></script>
 
 <style>/* Estilo específico para el reCAPTCHA */     
 .g-recaptcha {         
@@ -1734,20 +1734,23 @@ No dudes en escribirnos si necesitas ayuda. Estamos aquí para resolver cualquie
             document.getElementById(panel).style.display = "block";
         }
 
-// Función para manejar el registro
-document.getElementById("registrarBtn").addEventListener("click", () => {
+        document.getElementById("registrarBtn").addEventListener("click", () => {
     const nombre = document.getElementById("nombre").value;
     const email = document.getElementById("email").value;
     const password = document.getElementById("password").value;
     const mensajeRegistro = document.getElementById("mensajeRegistro");
-    const recaptchaResponseRegistro = grecaptcha.getResponse(recaptchaRegistroId);
 
+    // Obtener la respuesta del reCAPTCHA
+    const recaptchaResponseRegistro = grecaptcha.getResponse();
+
+    // Verificar si los campos están completos
     if (!nombre || !email || !password) {
         mensajeRegistro.innerText = "Completa todos los campos.";
         mensajeRegistro.style.color = "red";
         return;
     }
 
+    // Verificar si el reCAPTCHA ha sido completado
     if (!recaptchaResponseRegistro) {
         mensajeRegistro.innerText = "Por favor, completa el reCAPTCHA.";
         mensajeRegistro.style.color = "red";
@@ -1756,12 +1759,6 @@ document.getElementById("registrarBtn").addEventListener("click", () => {
 
     mensajeRegistro.innerText = "Registrando...";
     mensajeRegistro.style.color = "blue";
-
-// Resetea el reCAPTCHA al cambiar al formulario de inicio de sesión
-document.getElementById("mostrar-login").addEventListener("click", () => {
-    grecaptcha.reset(recaptchaRegistroId); // Resetea el reCAPTCHA de registro
-    mostrarPanel("login-container"); // Muestra el formulario de inicio de sesión
-});
 
             createUserWithEmailAndPassword(auth, email, password)
                 .then(async (userCredential) => {
@@ -1782,7 +1779,6 @@ document.getElementById("loginBtn").addEventListener("click", () => {
     const email = document.getElementById("login-email").value;
     const password = document.getElementById("login-password").value;
     const mensajeLogin = document.getElementById("mensajeLogin");
-    const recaptchaResponseLogin = grecaptcha.getResponse(recaptchaLoginId);
 
     if (!email || !password) {
         mensajeLogin.innerText = "Completa todos los campos.";
@@ -1790,24 +1786,8 @@ document.getElementById("loginBtn").addEventListener("click", () => {
         return;
     }
 
-    if (!recaptchaResponseLogin) {
-        mensajeLogin.innerText = "Por favor, completa el reCAPTCHA.";
-        mensajeLogin.style.color = "red";
-        return;
-    }
-
     mensajeLogin.innerText = "Iniciando sesión...";
     mensajeLogin.style.color = "blue";
-
-// Resetea el reCAPTCHA al cambiar al formulario de registro
-document.getElementById("mostrar-registro").addEventListener("click", () => {
-    grecaptcha.reset(recaptchaLoginId); // Resetea el reCAPTCHA de inicio de sesión
-    mostrarPanel("registro-container"); // Muestra el formulario de registro
-});
-
-// Llamar a onLoadRecaptcha cuando la página cargue
-window.onload = onLoadRecaptcha;
-
 
 
             signInWithEmailAndPassword(auth, email, password)
