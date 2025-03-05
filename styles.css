@@ -795,7 +795,7 @@ body {
     justify-content: center;
     flex-wrap: nowrap; /* Fuerza una sola fila */
     margin-top: 20px;
-    background-color: #0f102a;
+    background-color: #0d0d22;
     padding: 20px;
     border-radius: 10px;
     gap: 20px;
@@ -803,7 +803,7 @@ body {
 
 .event-card {
     padding: 15px;
-    background: #0d0d22;
+    background: #010117;
     border-radius: 10px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     text-align: center;
