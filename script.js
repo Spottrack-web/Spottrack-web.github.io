@@ -71,14 +71,14 @@ const commentsContainer = document.getElementById("comments-container");
 const comments = [
   {
     img: "images/developer.jpg",
-    text: "Spottrack es un proyecto hecho con pasión, diseñado para los amantes de la música.",
+    text: "Spottrack es un proyecto hecho y diseñado para los que les gusta la música y poder disfrutarla de manera optimizada.",
     role: "Desarrollador de spottrack",
     username: "Nat",
     roleClass: "developer",
   },
   {
     img: "images/user1.jpg",
-    text: "Desde que uso Spottrack, mi experiencia musical ha cambiado por completo sin dudas 10/10",
+    text: "Desde que uso Spottrack, mi experiencia ha cambiado por completo sin dudas 10/10",
     role: "Usuario",
     username: "Stequen_MD",
     roleClass: "user",
@@ -92,14 +92,14 @@ const comments = [
   },
   {
     img: "images/staff.jpg",
-    text: "Nuestra prioridad es ofrecer la mejor experiencia de soporte para los usuarios",
-    role: "Staff de spottrack",
+    text: "Basandome en mi experiencia la veo bien la verdad, sobre todo que no pesa mucho la de movil 10/10",
+    role: "Dev 2",
     username: "Soporte Team",
     roleClass: "staff",
   },
   {
     img: "images/content-creator.jpg",
-    text: "La mejor app de musica sin dudas su optimizacion es de locos y puedes reproducir musica en segundo plano me encanta",
+    text: "La mejor app de musica sin dudas su optimizacion me encanta y puedes reproducir musica con pantalla apagada me encanta",
     role: "Creador de Contenido",
     username: "Thanhix",
     roleClass: "creator",
@@ -142,10 +142,10 @@ document.addEventListener("DOMContentLoaded", () => {
               { 
                 title: "Sorteo Spottrack Premium", 
                 img: "images/event1.jpg", 
-                description: "🎉¡Este mes y el siguiente estaremos sorteando Spottrack Premium en nuestro servidor de Discord! 🎉 Habrá 3 ganadores, y los resultados se anunciarán el 28 de febrero. ¡No pierdas la oportunidad de ser uno de los afortunados! 🍀 ¡Suerte a todos! 😎✨"
+                description: "🎉¡Este mes estaremos sorteando Spottrack Premium en nuestro servidor de Discord! 🎉 Habrá 3 ganadores, y los resultados se anunciarán el 15 de marzo. ¡No pierdas la oportunidad de ser uno de los afortunados! 🍀 ¡Suerte a todos! 😎✨"
             },
                 { 
-                    title: "Sin evento", 
+                    title: "Sin evento",  
                     img: "images/event2.jpg", 
                     description: "El ultimo evento finalizo el 9/12/2024 ¡Pronto nuevos eventos!"
                 },
@@ -158,7 +158,7 @@ document.addEventListener("DOMContentLoaded", () => {
         } else if (type === "artistas") {
             events = [
                 { 
-                    title: "Ultra buenos aires", 
+                    title: "Ultra Buenos Aires", 
                     img: "images/event4.jpg", 
                     description: "El festival Ultra vuelve a Buenos Aires en 2025. Luego de 10 años, el viernes 18 y sábado 19 de abril se llevará a cabo una nueva edición en el Parque de la Ciudad. Y ya se conocen los primeros nombres del line-up. Adam Beyer, Black Coffee y Martin Garrix forman parte del line-up de Ultra Buenos Aires 2025."
                 },
@@ -168,9 +168,9 @@ document.addEventListener("DOMContentLoaded", () => {
                     description: "El festival Lollapalooza 2025 en Argentina se llevará a cabo del 21 al 23 de marzo en el Hipódromo de San Isidro, en Buenos Aires Fecha 21 22 y 23 de marzo de 2025"
                 },
                 { 
-                    title: "Shakira - recitales", 
+                    title: "Sin evento", 
                     img: "images/event6.jpg", 
-                    description: "Shakira se presentará en el Campo Argentino de Polo de Buenos Aires el 8 de marzo de 2025 como parte de su gira mundial Las mujeres ya no lloran. La artista colombiana agotó las entradas para la primera fecha, el 7 de marzo, y anunció una segunda función para el día siguiente. y estara en mas localidades. mas informacion en la imagen de arriba"
+                    description: "El evento finalizo"
                 }
             ];
         }
