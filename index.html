@@ -1,8 +1,9 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
   <title>Spottrack - Mantenimiento</title>
+  <link rel="stylesheet" href="firebase.css" />
   <style>
     body {
       background: #0d0d22;
@@ -11,31 +12,113 @@
       text-align: center;
       padding: 50px;
     }
-    .box {
+
+    .box, .container {
       background: #1a1a40;
       padding: 30px;
       border-radius: 10px;
       display: inline-block;
       max-width: 500px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.5);
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+      margin-top: 30px;
     }
+
     a {
       color: #00ffc3;
       text-decoration: none;
       font-weight: bold;
     }
+
     a:hover {
       text-decoration: underline;
+    }
+
+    #registro-container {
+      display: none;
+    }
+
+    /* Estilos responsivos para reCAPTCHA */
+    .g-recaptcha {
+      width: 101% !important;
+      margin-top: 10px;
+      margin-bottom: 10px;
+      display: flex;
+      justify-content: center;
+    }
+
+    .g-recaptcha iframe {
+      transform: scale(96%);
+      transform-origin: 1 0;
+    }
+
+    @media (min-width: 400px) and (max-width: 767px) {
+      .g-recaptcha {
+        width: 97% !important;
+        justify-content: center;
+      }
+      .g-recaptcha iframe {
+        transform: scale(105%);
+        transform-origin: 0 0;
+      }
+    }
+
+    @media (min-width: 768px) {
+      .g-recaptcha {
+        width: 100% !important;
+      }
+      .g-recaptcha iframe {
+        transform: scale(0.95);
+        transform-origin: 0 0;
+      }
     }
   </style>
 </head>
 <body>
-  <div class="box">
+
+  <!-- Panel de Mantenimiento -->
+  <div class="box" id="mantenimiento">
     <h1>🛠 Spottrack está en mantenimiento</h1>
     <p>Estamos trabajando para actualizar la web con las nuevas versiones de Spottrack.</p>
-    <p>El sitio estará nuevamente disponible a <strong>mediados de julio</strong> con una experiencia mejorada.</p>
+    <p><strong>La web estará disponible en agosto</strong> con una experiencia mejorada.</p>
     <p>Los usuarios existentes pueden seguir utilizando la app normalmente. Sin embargo, los nuevos usuarios no podrán registrarse por el momento.</p>
-    <p>¿Querés descargar Spottrack? <a href="https://www.appcreator24.com/app3565761-qfduva" target="_blank">Haz clic aquí</a>.</p>
+    <p>¿Querés descargar Spottrack? 
+      <a href="https://www.appcreator24.com/app3565761-qfduva" target="_blank">Haz clic aquí</a>.
+    </p>
+    <p>¿Quieres registrarte? <a href="#" id="mostrarRegistroManual">¡Regístrate YA!</a></p>
   </div>
+
+  <!-- Panel de Registro -->
+  <div class="container" id="registro-container">
+    <h2>Registrarse en Spottrack</h2>
+    <input type="text" id="nombre" placeholder="Nombre completo" />
+    <input type="email" id="email" placeholder="Correo electrónico" />
+    <input type="password" id="password" placeholder="Contraseña" />
+    <div id="recaptchaRegistro" class="g-recaptcha" data-sitekey="6LfVo-EqAAAAAKnO-lj24zrEW9N7f0pwokBrMQYf"></div>
+    <button id="registrarBtn">Registrarse</button>
+    <p class="mensaje" id="mensajeRegistro"></p>
+    <p><a href="https://discord.gg/TUENLACE" target="_blank">¿Tienes problemas para registrarte? Obtén ayuda en nuestro Discord YA</a></p>
+  </div>
+
+  <!-- Scripts -->
+  <script type="module" src="firebase.js"></script>
+  <script>
+    // Mostrar panel de registro si accede desde nat7614.github.io
+    const referrer = document.referrer;
+    const registroContainer = document.getElementById("registro-container");
+    const mantenimientoContainer = document.getElementById("mantenimiento");
+
+    if (referrer.includes("nat7614.github.io")) {
+      mantenimientoContainer.style.display = "none";
+      registroContainer.style.display = "block";
+    }
+
+    // También mostrar registro si hace clic en "¡Regístrate YA!"
+    document.getElementById("mostrarRegistroManual").addEventListener("click", function (e) {
+      e.preventDefault();
+      mantenimientoContainer.style.display = "none";
+      registroContainer.style.display = "block";
+    });
+  </script>
+  <script src="https://www.google.com/recaptcha/api.js" async defer></script>
 </body>
 </html>
