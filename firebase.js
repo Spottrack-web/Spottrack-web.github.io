@@ -49,10 +49,10 @@ document.getElementById("registrarBtn").addEventListener("click", async () => {
   }
 
   try {
-    // Normalizar nombre (por si el usuario escribe Nat07 o nat07)
-    const nombre = nombreOriginal.toLowerCase();
+    // Normalizar nombre (sin espacios y en minúsculas)
+    const nombre = nombreOriginal.toLowerCase().replace(/\s/g, "");
 
-    // Validar que el nombre no esté duplicado
+    // Verificar si el nombre está en uso (colección: nombresUsados)
     const nombreDocRef = doc(db, "nombresUsados", nombre);
     const nombreSnapshot = await getDoc(nombreDocRef);
     if (nombreSnapshot.exists()) {
@@ -67,7 +67,7 @@ document.getElementById("registrarBtn").addEventListener("click", async () => {
     // Enviar correo de verificación
     await sendEmailVerification(user);
 
-    // Guardar datos en Firestore usando el UID como ID del documento
+    // Guardar datos del usuario en Firestore
     const usuarioDocRef = doc(db, "usuarios", user.uid);
     await setDoc(usuarioDocRef, {
       uid: user.uid,
@@ -78,7 +78,7 @@ document.getElementById("registrarBtn").addEventListener("click", async () => {
       registrado: new Date().toISOString()
     });
 
-    // Registrar nombre usado (clave única) y almacenar nombre y uid
+    // Guardar el nombre en la colección nombresUsados
     await setDoc(nombreDocRef, {
       uid: user.uid,
       nombre: nombreOriginal
@@ -86,7 +86,6 @@ document.getElementById("registrarBtn").addEventListener("click", async () => {
 
     mensaje.textContent = "Registro exitoso. Verifica tu correo antes de iniciar sesión.";
     mensaje.style.color = "lime";
-
   } catch (error) {
     console.error(error);
     if (error.code === "auth/email-already-in-use") {
