@@ -28,7 +28,7 @@ const db = getFirestore(app);
 
 // Registro
 document.getElementById("registrarBtn").addEventListener("click", async () => {
-  const nombre = document.getElementById("nombre").value.trim();
+  const nombreOriginal = document.getElementById("nombre").value.trim();
   const email = document.getElementById("email").value.trim();
   const password = document.getElementById("password").value.trim();
   const mensaje = document.getElementById("mensajeRegistro");
@@ -36,7 +36,7 @@ document.getElementById("registrarBtn").addEventListener("click", async () => {
   mensaje.textContent = "";
   mensaje.style.color = "white";
 
-  if (!nombre || !email || !password) {
+  if (!nombreOriginal || !email || !password) {
     mensaje.textContent = "Por favor completa todos los campos.";
     return;
   }
@@ -49,8 +49,11 @@ document.getElementById("registrarBtn").addEventListener("click", async () => {
   }
 
   try {
+    // Normalizar nombre (por si el usuario escribe Nat07 o nat07)
+    const nombre = nombreOriginal.toLowerCase();
+
     // Validar que el nombre no esté duplicado
-    const nombreDocRef = doc(db, "nombresUsados", nombre.toLowerCase());
+    const nombreDocRef = doc(db, "nombresUsados", nombre);
     const nombreSnapshot = await getDoc(nombreDocRef);
     if (nombreSnapshot.exists()) {
       mensaje.textContent = "Este nombre ya está en uso. Elige otro.";
@@ -68,15 +71,18 @@ document.getElementById("registrarBtn").addEventListener("click", async () => {
     const usuarioDocRef = doc(db, "usuarios", user.uid);
     await setDoc(usuarioDocRef, {
       uid: user.uid,
-      nombre: nombre,
+      nombre: nombreOriginal,
       email: email,
       premium: false,
       verificado: false,
       registrado: new Date().toISOString()
     });
 
-    // Registrar nombre usado para evitar duplicados
-    await setDoc(nombreDocRef, { uid: user.uid });
+    // Registrar nombre usado (clave única) y almacenar nombre y uid
+    await setDoc(nombreDocRef, {
+      uid: user.uid,
+      nombre: nombreOriginal
+    });
 
     mensaje.textContent = "Registro exitoso. Verifica tu correo antes de iniciar sesión.";
     mensaje.style.color = "lime";
