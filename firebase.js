@@ -49,10 +49,9 @@ document.getElementById("registrarBtn").addEventListener("click", async () => {
   }
 
   try {
-    // Validar nombre no duplicado
+    // Validar que el nombre no esté duplicado
     const nombreDocRef = doc(db, "nombresUsados", nombre.toLowerCase());
     const nombreSnapshot = await getDoc(nombreDocRef);
-
     if (nombreSnapshot.exists()) {
       mensaje.textContent = "Este nombre ya está en uso. Elige otro.";
       return;
@@ -65,7 +64,7 @@ document.getElementById("registrarBtn").addEventListener("click", async () => {
     // Enviar correo de verificación
     await sendEmailVerification(user);
 
-    // Guardar en la colección "usuarios" con el UID
+    // Guardar datos en Firestore usando el UID como ID del documento
     const usuarioDocRef = doc(db, "usuarios", user.uid);
     await setDoc(usuarioDocRef, {
       uid: user.uid,
@@ -76,7 +75,7 @@ document.getElementById("registrarBtn").addEventListener("click", async () => {
       registrado: new Date().toISOString()
     });
 
-    // Marcar el nombre como utilizado
+    // Registrar nombre usado para evitar duplicados
     await setDoc(nombreDocRef, { uid: user.uid });
 
     mensaje.textContent = "Registro exitoso. Verifica tu correo antes de iniciar sesión.";
