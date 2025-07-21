@@ -50,13 +50,9 @@ document.getElementById("registrarBtn").addEventListener("click", async () => {
     return;
   }
 
-  // Validar correo básico (solo dominios comunes)
-  const correoValido = /^[\w.-]+@(?:gmail|hotmail|outlook|yahoo)\.(com|es)$/i.test(email);
-  if (!correoValido) {
-    mensaje.textContent = "Correo inválido (usa @gmail.com, @hotmail.com, etc).";
-    mensaje.style.color = "red";
-    return;
-  }
+  // Mensaje azul mientras se registra
+  mensaje.textContent = "Registrando...";
+  mensaje.style.color = "deepskyblue";
 
   try {
     const nombre = nombreOriginal.toLowerCase().replace(/\s/g, "");
@@ -70,14 +66,14 @@ document.getElementById("registrarBtn").addEventListener("click", async () => {
       return;
     }
 
-    // Crear usuario en Firebase Auth
+    // Crear el usuario
     const userCredential = await createUserWithEmailAndPassword(auth, email, password);
     const user = userCredential.user;
 
-    // Enviar correo de verificación
+    // Enviar verificación por correo
     await sendEmailVerification(user);
 
-    // Guardar datos del usuario en Firestore
+    // Guardar datos del usuario
     const usuarioDocRef = doc(db, "usuarios", user.uid);
     await setDoc(usuarioDocRef, {
       uid: user.uid,
@@ -88,17 +84,16 @@ document.getElementById("registrarBtn").addEventListener("click", async () => {
       registrado: new Date().toISOString()
     });
 
-    // Guardar nombre en nombresUsados
+    // Guardar el nombre
     await setDoc(nombreDocRef, {
       uid: user.uid,
       nombre: nombreOriginal
     });
 
-    mensaje.textContent = "Registro exitoso. Verifica tu correo antes de iniciar sesión.";
+    mensaje.textContent = "Registro completado ¡Bienvenido a Spottrack!";
     mensaje.style.color = "lime";
   } catch (error) {
     console.error(error);
-    mensaje.style.color = "red";
     if (error.code === "auth/email-already-in-use") {
       mensaje.textContent = "Este correo ya está registrado.";
     } else if (error.code === "auth/invalid-email") {
@@ -108,5 +103,6 @@ document.getElementById("registrarBtn").addEventListener("click", async () => {
     } else {
       mensaje.textContent = "Error al registrar. Intenta de nuevo.";
     }
+    mensaje.style.color = "red";
   }
 });
