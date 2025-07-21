@@ -38,6 +38,7 @@ document.getElementById("registrarBtn").addEventListener("click", async () => {
 
   if (!nombreOriginal || !email || !password) {
     mensaje.textContent = "Por favor completa todos los campos.";
+    mensaje.style.color = "red";
     return;
   }
 
@@ -45,18 +46,27 @@ document.getElementById("registrarBtn").addEventListener("click", async () => {
   const recaptchaResponse = grecaptcha.getResponse();
   if (!recaptchaResponse) {
     mensaje.textContent = "Por favor, completa el reCAPTCHA.";
+    mensaje.style.color = "red";
+    return;
+  }
+
+  // Validar correo básico (solo dominios comunes)
+  const correoValido = /^[\w.-]+@(?:gmail|hotmail|outlook|yahoo)\.(com|es)$/i.test(email);
+  if (!correoValido) {
+    mensaje.textContent = "Correo inválido (usa @gmail.com, @hotmail.com, etc).";
+    mensaje.style.color = "red";
     return;
   }
 
   try {
-    // Normalizar nombre (sin espacios y en minúsculas)
     const nombre = nombreOriginal.toLowerCase().replace(/\s/g, "");
 
-    // Verificar si el nombre está en uso (colección: nombresUsados)
+    // Verificar si el nombre ya está en uso
     const nombreDocRef = doc(db, "nombresUsados", nombre);
     const nombreSnapshot = await getDoc(nombreDocRef);
     if (nombreSnapshot.exists()) {
       mensaje.textContent = "Este nombre ya está en uso. Elige otro.";
+      mensaje.style.color = "red";
       return;
     }
 
@@ -78,7 +88,7 @@ document.getElementById("registrarBtn").addEventListener("click", async () => {
       registrado: new Date().toISOString()
     });
 
-    // Guardar el nombre en la colección nombresUsados
+    // Guardar nombre en nombresUsados
     await setDoc(nombreDocRef, {
       uid: user.uid,
       nombre: nombreOriginal
@@ -88,6 +98,7 @@ document.getElementById("registrarBtn").addEventListener("click", async () => {
     mensaje.style.color = "lime";
   } catch (error) {
     console.error(error);
+    mensaje.style.color = "red";
     if (error.code === "auth/email-already-in-use") {
       mensaje.textContent = "Este correo ya está registrado.";
     } else if (error.code === "auth/invalid-email") {
@@ -97,6 +108,5 @@ document.getElementById("registrarBtn").addEventListener("click", async () => {
     } else {
       mensaje.textContent = "Error al registrar. Intenta de nuevo.";
     }
-    mensaje.style.color = "red";
   }
 });
