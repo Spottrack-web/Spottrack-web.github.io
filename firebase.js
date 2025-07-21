@@ -54,10 +54,6 @@ document.getElementById("registrarBtn").addEventListener("click", async () => {
   mensaje.textContent = "Registrando...";
   mensaje.style.color = "deepskyblue";
 
-// Redireccionar después de 2 segundos
-setTimeout(() => {
-  window.location.href = 'https://nat7614.github.io';
-}, 2000);
 
   try {
     const nombre = nombreOriginal.toLowerCase().replace(/\s/g, "");
@@ -97,6 +93,12 @@ setTimeout(() => {
 
     mensaje.textContent = "Registro completado ¡Bienvenido a Spottrack!";
     mensaje.style.color = "lime";
+
+// Redireccionar después de 2 segundos
+setTimeout(() => {
+  window.location.href = 'https://nat7614.github.io';
+}, 2000);
+
   } catch (error) {
     console.error(error);
     if (error.code === "auth/email-already-in-use") {
