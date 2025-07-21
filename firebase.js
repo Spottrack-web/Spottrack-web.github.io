@@ -34,6 +34,7 @@ document.getElementById("registrarBtn").addEventListener("click", async () => {
   const mensaje = document.getElementById("mensajeRegistro");
 
   mensaje.textContent = "";
+  mensaje.style.color = "white";
 
   if (!nombre || !email || !password) {
     mensaje.textContent = "Por favor completa todos los campos.";
@@ -48,23 +49,25 @@ document.getElementById("registrarBtn").addEventListener("click", async () => {
   }
 
   try {
-    // Verifica si ya existe un usuario con ese nombre
-    const nombreRef = doc(db, "usuarios", nombre.toLowerCase());
-    const docSnap = await getDoc(nombreRef);
-    if (docSnap.exists()) {
+    // Validar nombre no duplicado
+    const nombreDocRef = doc(db, "nombresUsados", nombre.toLowerCase());
+    const nombreSnapshot = await getDoc(nombreDocRef);
+
+    if (nombreSnapshot.exists()) {
       mensaje.textContent = "Este nombre ya está en uso. Elige otro.";
       return;
     }
 
-    // Crea el usuario
+    // Crear usuario en Firebase Auth
     const userCredential = await createUserWithEmailAndPassword(auth, email, password);
     const user = userCredential.user;
 
-    // Envía correo de verificación
+    // Enviar correo de verificación
     await sendEmailVerification(user);
 
-    // Guarda datos del usuario en Firestore
-    await setDoc(nombreRef, {
+    // Guardar en la colección "usuarios" con el UID
+    const usuarioDocRef = doc(db, "usuarios", user.uid);
+    await setDoc(usuarioDocRef, {
       uid: user.uid,
       nombre: nombre,
       email: email,
@@ -72,6 +75,9 @@ document.getElementById("registrarBtn").addEventListener("click", async () => {
       verificado: false,
       registrado: new Date().toISOString()
     });
+
+    // Marcar el nombre como utilizado
+    await setDoc(nombreDocRef, { uid: user.uid });
 
     mensaje.textContent = "Registro exitoso. Verifica tu correo antes de iniciar sesión.";
     mensaje.style.color = "lime";
